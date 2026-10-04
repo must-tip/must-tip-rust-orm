@@ -1,0 +1,42 @@
+[
+  {
+    "command": "rustup show",
+    "exit_code": 0,
+    "log": "audit/baseline-0.log"
+  },
+  {
+    "command": "rustc --version",
+    "exit_code": 0,
+    "log": "audit/baseline-1.log"
+  },
+  {
+    "command": "cargo --version",
+    "exit_code": 0,
+    "log": "audit/baseline-2.log"
+  },
+  {
+    "command": "cargo fmt --all -- --check",
+    "exit_code": 1,
+    "log": "audit/baseline-3.log"
+  },
+  {
+    "command": "cargo check --workspace --all-targets --all-features",
+    "exit_code": 101,
+    "log": "audit/baseline-4.log"
+  },
+  {
+    "command": "cargo clippy --workspace --all-targets --all-features -- -D warnings",
+    "exit_code": 101,
+    "log": "audit/baseline-5.log"
+  },
+  {
+    "command": "cargo test --workspace --all-targets --all-features",
+    "exit_code": 101,
+    "log": "audit/baseline-6.log"
+  },
+  {
+    "command": "cargo doc --workspace --all-features --no-deps",
+    "exit_code": 101,
+    "log": "audit/baseline-7.log"
+  }
+]

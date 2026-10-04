@@ -1,0 +1,50 @@
+[package]
+name = "lex-rest"
+version = "1.0.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Lex framework lex_rest components"
+readme = "README.md"
+keywords = ["lex", "web", "database"]
+categories = ["web-programming", "database"]
+documentation = "https://docs.rs/lex-rest"
+
+[features]
+default = []
+axum = ["dep:axum"]
+axum-rustls = ["axum", "dep:axum-server", "dep:rustls", "dep:rustls-pki-types"]
+# Test-only gate: requires TEST_DATABASE_URL and CONFIRM_DISPOSABLE_DATABASE=yes.
+postgres-integration = []
+
+[lib]
+name = "lex_rest"
+
+[dependencies]
+rustls = { version = "0.23", default-features = false, features = ["std", "ring", "tls12"], optional = true }
+rustls-pki-types = { version = "1", features = ["std"], optional = true }
+async-trait.workspace = true
+chrono.workspace = true
+db_controller = { package = "lex-db-controller", version = "=1.0.0", path = "../db_controller" }
+http.workspace = true
+models = { package = "lex-models", version = "=1.0.0", path = "../models" }
+percent-encoding.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+sqlx.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+url.workspace = true
+uuid.workspace = true
+axum = { workspace = true, optional = true }
+axum-server = { workspace = true, optional = true }
+
+[dev-dependencies]
+migration.workspace = true
+tokio.workspace = true
+tower = { version = "0.5", features = ["util"] }
+
+[lints]
+workspace = true

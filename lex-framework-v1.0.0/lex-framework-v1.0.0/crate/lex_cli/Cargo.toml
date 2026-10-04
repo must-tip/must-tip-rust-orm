@@ -1,0 +1,36 @@
+[package]
+name = "lex-cli"
+version = "1.0.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+readme = "README.md"
+keywords = ["lex", "web", "database"]
+categories = ["web-programming", "database"]
+documentation = "https://docs.rs/lex-cli"
+description = "Lex framework project and developer CLI"
+
+[[bin]]
+name = "lex"
+path = "src/main.rs"
+
+[lib]
+name = "lex_cli"
+
+[dependencies]
+toml_edit = "0.25"
+anyhow.workspace = true
+clap.workspace = true
+config.workspace = true
+regex.workspace = true
+percent-encoding.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+toml.workspace = true
+sanitize-filename.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

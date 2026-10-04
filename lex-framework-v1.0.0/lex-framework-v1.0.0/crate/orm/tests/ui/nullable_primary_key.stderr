@@ -1,0 +1,5 @@
+error: primary key fields cannot be nullable
+ --> tests/ui/nullable_primary_key.rs:6:5
+  |
+6 |     id: Option<UUIDField>,
+  |     ^^

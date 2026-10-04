@@ -1,0 +1,27 @@
+[package]
+name = "lex_framework_server"
+version = "1.0.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+anyhow.workspace = true
+async-trait.workspace = true
+axum.workspace = true
+db.workspace = true
+http.workspace = true
+lex_rest = { workspace = true, features = ["axum"] }
+lex_framework.workspace = true
+media.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+# lex:apps:start
+# lex:apps:end
+
+[lints]
+workspace = true

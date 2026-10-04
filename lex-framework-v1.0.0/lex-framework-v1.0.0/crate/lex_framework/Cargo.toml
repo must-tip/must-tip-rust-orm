@@ -1,0 +1,57 @@
+[package]
+name = "lex-framework"
+version = "1.0.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+readme = "README.md"
+keywords = ["lex", "web", "database"]
+categories = ["web-programming", "database"]
+documentation = "https://docs.rs/lex-framework"
+description = "Lex framework facade, settings, and runtime composition"
+
+[features]
+default = []
+axum = ["lex_rest/axum"]
+axum-rustls = ["axum", "lex_rest/axum-rustls"]
+# Test-only: requires a disposable LEX_TEST_COOKIE_SECRET; no production credentials.
+cookie-integration = ["axum"]
+
+[lib]
+name = "lex_framework"
+
+[dependencies]
+anyhow.workspace = true
+config.workspace = true
+db.workspace = true
+db_controller.workspace = true
+media.workspace = true
+migration.workspace = true
+models.workspace = true
+lex_rest.workspace = true
+orm.workspace = true
+secure_input.workspace = true
+serde.workspace = true
+
+async-trait.workspace = true
+
+base64.workspace = true
+
+hmac.workspace = true
+http.workspace = true
+
+sha2.workspace = true
+
+sqlx.workspace = true
+tokio.workspace = true
+
+serde_json.workspace = true
+
+uuid.workspace = true
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+axum.workspace = true
+tower = { version = "0.5", features = ["util"] }

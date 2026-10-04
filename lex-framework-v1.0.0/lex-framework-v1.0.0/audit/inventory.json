@@ -1,0 +1,2875 @@
+[
+  {
+    "member": "crate/orm",
+    "package": "orm",
+    "features": {},
+    "source_lines": 1148,
+    "public_items": [
+      {
+        "file": "crate/orm/src/lib.rs",
+        "line": 466,
+        "declaration": "pub fn derive_model(input: TokenStream) -> TokenStream {"
+      }
+    ],
+    "tests": [
+      {
+        "file": "crate/orm/tests/model_derive.rs",
+        "line": 22,
+        "declaration": "fn assert_pg_row_compatible<T>()"
+      },
+      {
+        "file": "crate/orm/tests/model_derive.rs",
+        "line": 33,
+        "declaration": "fn derive_generates_repository_compatible_contract() {"
+      },
+      {
+        "file": "crate/orm/tests/model_derive.rs",
+        "line": 64,
+        "declaration": "fn derive_validation_and_relation_projection_are_deterministic() {"
+      },
+      {
+        "file": "crate/orm/tests/model_derive.rs",
+        "line": 83,
+        "declaration": "fn derive_exposes_django_style_manager_entry_point() {"
+      }
+    ]
+  },
+  {
+    "member": "crate/db",
+    "package": "db",
+    "features": {},
+    "source_lines": 578,
+    "public_items": [
+      {
+        "file": "crate/db/src/lib.rs",
+        "line": 1,
+        "declaration": "pub mod config;"
+      },
+      {
+        "file": "crate/db/src/lib.rs",
+        "line": 2,
+        "declaration": "pub mod db_config;"
+      },
+      {
+        "file": "crate/db/src/db_config.rs",
+        "line": 16,
+        "declaration": "pub enum DatabasePool {"
+      },
+      {
+        "file": "crate/db/src/db_config.rs",
+        "line": 38,
+        "declaration": "pub struct Database {"
+      },
+      {
+        "file": "crate/db/src/config.rs",
+        "line": 16,
+        "declaration": "pub const DEFAULT_SQLITE_URL: &str = \"sqlite://db.sqlite3\";"
+      },
+      {
+        "file": "crate/db/src/config.rs",
+        "line": 19,
+        "declaration": "pub enum SettingsError {"
+      },
+      {
+        "file": "crate/db/src/config.rs",
+        "line": 36,
+        "declaration": "pub enum DatabaseBackend {"
+      },
+      {
+        "file": "crate/db/src/config.rs",
+        "line": 50,
+        "declaration": "pub struct Settings {"
+      },
+      {
+        "file": "crate/db/src/config.rs",
+        "line": 58,
+        "declaration": "pub struct DatabaseSettings {"
+      },
+      {
+        "file": "crate/db/src/config.rs",
+        "line": 82,
+        "declaration": "pub struct ServerSettings {"
+      },
+      {
+        "file": "crate/db/src/config.rs",
+        "line": 251,
+        "declaration": "pub fn backend_from_url(url: &str) -> Result<DatabaseBackend, SettingsError> {"
+      }
+    ],
+    "tests": []
+  },
+  {
+    "member": "crate/db_controller",
+    "package": "db_controller",
+    "features": {},
+    "source_lines": 10926,
+    "public_items": [
+      {
+        "file": "crate/db_controller/src/security.rs",
+        "line": 12,
+        "declaration": "pub const TENANT_GUC: &str = \"app.tenant_id\";"
+      },
+      {
+        "file": "crate/db_controller/src/security.rs",
+        "line": 15,
+        "declaration": "pub struct TenantRlsPolicy {"
+      },
+      {
+        "file": "crate/db_controller/src/security.rs",
+        "line": 66,
+        "declaration": "pub async fn set_transaction_tenant("
+      },
+      {
+        "file": "crate/db_controller/src/security.rs",
+        "line": 78,
+        "declaration": "pub async fn clear_transaction_tenant("
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 24,
+        "declaration": "pub struct RestError {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 64,
+        "declaration": "pub enum RestAction {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 77,
+        "declaration": "pub trait RestAccessPolicy<T: Entity>: Send + Sync {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 102,
+        "declaration": "pub enum SerializerMode {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 109,
+        "declaration": "pub struct SerializerFieldPolicy {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 117,
+        "declaration": "pub struct SerializerPolicy {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 322,
+        "declaration": "pub enum Lookup {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 418,
+        "declaration": "pub enum PaginationStyle {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 501,
+        "declaration": "pub struct RestQueryPolicy {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 939,
+        "declaration": "pub struct AppliedRestQuery<T, E> {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 954,
+        "declaration": "pub struct CursorPagePolicy {"
+      },
+      {
+        "file": "crate/db_controller/src/rest.rs",
+        "line": 984,
+        "declaration": "pub struct CursorPage<T> {"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 3,
+        "declaration": "pub mod db_type;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 4,
+        "declaration": "pub mod entity;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 5,
+        "declaration": "pub mod error;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 6,
+        "declaration": "pub mod field;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 7,
+        "declaration": "pub mod media_model;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 8,
+        "declaration": "pub mod model_state;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 9,
+        "declaration": "pub mod query;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 10,
+        "declaration": "pub mod query_builder;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 11,
+        "declaration": "pub mod repository;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 12,
+        "declaration": "pub mod rest;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 13,
+        "declaration": "pub mod security;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 14,
+        "declaration": "pub mod sqlite_support;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 15,
+        "declaration": "pub mod transaction;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 16,
+        "declaration": "pub mod useables;"
+      },
+      {
+        "file": "crate/db_controller/src/lib.rs",
+        "line": 65,
+        "declaration": "pub mod prelude {"
+      },
+      {
+        "file": "crate/db_controller/src/model_state.rs",
+        "line": 17,
+        "declaration": "pub struct Tracked<T>"
+      },
+      {
+        "file": "crate/db_controller/src/error.rs",
+        "line": 11,
+        "declaration": "pub type RepoResult<T> = Result<T, ModelError>;"
+      },
+      {
+        "file": "crate/db_controller/src/error.rs",
+        "line": 14,
+        "declaration": "pub enum ModelError {"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 21,
+        "declaration": "pub struct ForeignKey<T> {"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 45,
+        "declaration": "pub struct ManyToMany<T> {"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 79,
+        "declaration": "pub struct UUIDField(pub Uuid);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 111,
+        "declaration": "pub struct DateTimeField(pub DateTime<Utc>);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 137,
+        "declaration": "pub struct DecimalField(pub Decimal);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 163,
+        "declaration": "pub struct PasswordField(pub String);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 201,
+        "declaration": "pub struct JsonField<T>(pub T);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 229,
+        "declaration": "pub struct BooleanField(pub bool);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 243,
+        "declaration": "pub struct IntegerField(pub i32);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 257,
+        "declaration": "pub struct FloatField(pub f64);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 271,
+        "declaration": "pub struct TextField(pub String);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 289,
+        "declaration": "pub struct SlugField(pub String);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 312,
+        "declaration": "pub struct BinaryField(pub Vec<u8>);"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 334,
+        "declaration": "pub struct ChoiceField<T>"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 370,
+        "declaration": "pub fn map_type_to_wrapper(ty: &Type) -> TokenStream {"
+      },
+      {
+        "file": "crate/db_controller/src/field.rs",
+        "line": 397,
+        "declaration": "pub fn map_type_to_sql(ty: &Type) -> String {"
+      },
+      {
+        "file": "crate/db_controller/src/repository.rs",
+        "line": 18,
+        "declaration": "pub struct Pagination {"
+      },
+      {
+        "file": "crate/db_controller/src/repository.rs",
+        "line": 23,
+        "declaration": "pub type TxFuture<'a, R> = Pin<Box<dyn Future<Output = Result<R, Error>> + Send + 'a>>;"
+      },
+      {
+        "file": "crate/db_controller/src/repository.rs",
+        "line": 34,
+        "declaration": "pub trait Repository<T>"
+      },
+      {
+        "file": "crate/db_controller/src/repository.rs",
+        "line": 58,
+        "declaration": "pub struct ModelManager<T>"
+      },
+      {
+        "file": "crate/db_controller/src/repository.rs",
+        "line": 603,
+        "declaration": "pub struct SqliteModelManager<T>"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 5,
+        "declaration": "pub enum Aggregate {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 14,
+        "declaration": "pub enum Operator {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 25,
+        "declaration": "pub enum JoinType {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 33,
+        "declaration": "pub struct Join {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 41,
+        "declaration": "pub struct SqlHook {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 46,
+        "declaration": "pub struct ModelQuery<'a> {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 60,
+        "declaration": "pub struct InsertBuilder<'a> {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 67,
+        "declaration": "pub struct UpsertBuilder<'a> {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 73,
+        "declaration": "pub struct DeleteQuery<'a> {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 80,
+        "declaration": "pub struct BatchUpdate<'a> {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 87,
+        "declaration": "pub struct BulkInsert<'a> {"
+      },
+      {
+        "file": "crate/db_controller/src/db_type.rs",
+        "line": 94,
+        "declaration": "pub async fn save_row("
+      },
+      {
+        "file": "crate/db_controller/src/sqlite_support.rs",
+        "line": 11,
+        "declaration": "pub async fn ensure_sqlite_model<T: Entity>(pool: &SqlitePool) -> Result<(), ModelError> {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 12,
+        "declaration": "pub struct TableMigration {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 21,
+        "declaration": "pub struct ColumnSpec {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 61,
+        "declaration": "pub enum RelationCardinality {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 67,
+        "declaration": "pub enum OnDelete {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 88,
+        "declaration": "pub struct RelationSpec {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 106,
+        "declaration": "pub enum IndexMethod {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 127,
+        "declaration": "pub struct IndexSpec {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 135,
+        "declaration": "pub struct UniqueConstraintSpec {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 141,
+        "declaration": "pub struct CheckConstraintSpec {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 147,
+        "declaration": "pub struct ModelMetadata {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 159,
+        "declaration": "pub fn is_safe_identifier(value: &str) -> bool {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 171,
+        "declaration": "pub fn quote_identifier(value: &str) -> Option<String> {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 184,
+        "declaration": "pub fn regex_is_match(pattern: &str, input: &str) -> Result<bool, regex::Error> {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 188,
+        "declaration": "pub fn is_safe_sql_type(value: &str) -> bool {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 215,
+        "declaration": "pub fn is_safe_default_expression(value: &str) -> bool {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 231,
+        "declaration": "pub fn is_safe_check_expression(value: &str) -> bool {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 306,
+        "declaration": "pub trait Entity: Sized {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 426,
+        "declaration": "pub trait EntityObject: Send + Sync + 'static {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 488,
+        "declaration": "pub fn effective_schema<E: Entity>() -> HashMap<String, ColumnSpec> {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 496,
+        "declaration": "pub fn render_index_spec<E: Entity>(index: &IndexSpec) -> Result<String, String> {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 538,
+        "declaration": "pub fn generate_create_table_sql<E: Entity>() -> String {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 618,
+        "declaration": "pub fn generate_create_table_sql_sqlite<E: Entity>() -> String {"
+      },
+      {
+        "file": "crate/db_controller/src/entity.rs",
+        "line": 733,
+        "declaration": "pub fn render_index_spec_sqlite<E: Entity>(index: &IndexSpec) -> Result<String, String> {"
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 15,
+        "declaration": "pub enum IsolationLevel {"
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 32,
+        "declaration": "pub struct TransactionOptions {"
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 81,
+        "declaration": "pub struct Savepoint {"
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 89,
+        "declaration": "pub struct AtomicTransaction<'pool> {"
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 264,
+        "declaration": "pub struct SqliteAtomicTransaction<'pool> {"
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 396,
+        "declaration": "pub struct RetryPolicy {"
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 433,
+        "declaration": "pub type TransactionFuture<'a, T> ="
+      },
+      {
+        "file": "crate/db_controller/src/transaction.rs",
+        "line": 438,
+        "declaration": "pub async fn retry_transaction<T, F>("
+      },
+      {
+        "file": "crate/db_controller/src/query_builder.rs",
+        "line": 559,
+        "declaration": "pub async fn save_row("
+      },
+      {
+        "file": "crate/db_controller/src/media_model.rs",
+        "line": 8,
+        "declaration": "pub type ImageField = BinaryField;"
+      },
+      {
+        "file": "crate/db_controller/src/media_model.rs",
+        "line": 9,
+        "declaration": "pub type AudioField = BinaryField;"
+      },
+      {
+        "file": "crate/db_controller/src/media_model.rs",
+        "line": 10,
+        "declaration": "pub type VideoField = BinaryField;"
+      },
+      {
+        "file": "crate/db_controller/src/media_model.rs",
+        "line": 11,
+        "declaration": "pub type PdfField = BinaryField;"
+      },
+      {
+        "file": "crate/db_controller/src/media_model.rs",
+        "line": 12,
+        "declaration": "pub type DocumentField = BinaryField;"
+      },
+      {
+        "file": "crate/db_controller/src/useables.rs",
+        "line": 8,
+        "declaration": "pub trait SoftDelete: Entity {"
+      },
+      {
+        "file": "crate/db_controller/src/useables.rs",
+        "line": 29,
+        "declaration": "pub trait Versioned: Entity {"
+      },
+      {
+        "file": "crate/db_controller/src/useables.rs",
+        "line": 42,
+        "declaration": "pub trait Auditable: Entity {"
+      },
+      {
+        "file": "crate/db_controller/src/useables.rs",
+        "line": 55,
+        "declaration": "pub trait MultiTenant: Entity {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 53,
+        "declaration": "pub enum DbValue {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 253,
+        "declaration": "pub enum ComparisonOperator {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 276,
+        "declaration": "pub enum TextLookup {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 288,
+        "declaration": "pub enum DatePart {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 315,
+        "declaration": "pub enum ArithmeticOperator {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 334,
+        "declaration": "pub enum UpdateExpression {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 351,
+        "declaration": "pub enum Predicate {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 428,
+        "declaration": "pub struct Field<T> {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 637,
+        "declaration": "pub enum SortDirection {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 643,
+        "declaration": "pub enum NullOrdering {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 650,
+        "declaration": "pub struct OrderBy {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 689,
+        "declaration": "pub trait GlobalScopeAuthorization: Send + Sync {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 694,
+        "declaration": "pub enum RowLock {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 702,
+        "declaration": "pub enum LockWait {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 709,
+        "declaration": "pub enum AggregateFunction {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 742,
+        "declaration": "pub enum DatabaseDialect {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 758,
+        "declaration": "pub struct QueryPreview {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 764,
+        "declaration": "pub trait QueryExecutor: Send {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 795,
+        "declaration": "pub struct PoolExecutor {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 808,
+        "declaration": "pub struct TransactionExecutor<'a, 'tx> {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 995,
+        "declaration": "pub struct SqlitePoolExecutor {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 1009,
+        "declaration": "pub struct SqliteTransactionExecutor<'a, 'tx> {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 1330,
+        "declaration": "pub struct QuerySet<T, E> {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 2674,
+        "declaration": "pub struct Joined<T, R> {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 2680,
+        "declaration": "pub struct Prefetched<T, R> {"
+      },
+      {
+        "file": "crate/db_controller/src/query.rs",
+        "line": 3725,
+        "declaration": "pub fn dynamic_predicate<T: Entity>("
+      }
+    ],
+    "tests": [
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 34,
+        "declaration": "fn table_name() -> &'static str {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 38,
+        "declaration": "fn primary_key() -> &'static str {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 42,
+        "declaration": "fn tenant_column() -> Option<&'static str> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 46,
+        "declaration": "fn soft_delete_column() -> Option<&'static str> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 50,
+        "declaration": "fn version_column() -> Option<&'static str> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 54,
+        "declaration": "fn schema() -> HashMap<String, ColumnSpec> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 93,
+        "declaration": "fn to_map(&self) -> HashMap<String, Value> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 121,
+        "declaration": "fn table_name() -> &'static str {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 125,
+        "declaration": "fn primary_key() -> &'static str {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 129,
+        "declaration": "fn tenant_column() -> Option<&'static str> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 133,
+        "declaration": "fn soft_delete_column() -> Option<&'static str> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 137,
+        "declaration": "fn schema() -> HashMap<String, ColumnSpec> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 164,
+        "declaration": "fn unique_constraints() -> Vec<db_controller::UniqueConstraintSpec> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 171,
+        "declaration": "fn to_map(&self) -> HashMap<String, Value> {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 184,
+        "declaration": "fn profile(tenant_id: Uuid, record_id: Uuid, label: &str) -> IntegrationProfile {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 197,
+        "declaration": "fn profile_relation() -> RelationSpec {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 210,
+        "declaration": "fn column("
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 227,
+        "declaration": "fn record(tenant_id: Uuid, external_key: &str, name: &str) -> IntegrationRecord {"
+      },
+      {
+        "file": "crate/db_controller/tests/postgres_orm.rs",
+        "line": 245,
+        "declaration": "async fn postgres_queryset_transaction_and_model_state_contracts()"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 16,
+        "declaration": "fn table_name() -> &'static str { \"notes\" }"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 17,
+        "declaration": "fn primary_key() -> &'static str { \"id\" }"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 19,
+        "declaration": "fn schema() -> HashMap<String, ColumnSpec> {"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 36,
+        "declaration": "fn to_map(&self) -> HashMap<String, Value> {"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 45,
+        "declaration": "async fn pool() -> sqlx::SqlitePool {"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 54,
+        "declaration": "async fn sqlite_queryset_supports_crud_without_postgres() {"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 96,
+        "declaration": "fn sqlite_ddl_maps_postgres_specific_framework_types() {"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 105,
+        "declaration": "fn sqlite_ddl_preserves_exact_numeric_values_as_text() {"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 108,
+        "declaration": "fn table_name() -> &'static str { \"ledger_amounts\" }"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 109,
+        "declaration": "fn schema() -> HashMap<String, ColumnSpec> {"
+      },
+      {
+        "file": "crate/db_controller/tests/sqlite_orm.rs",
+        "line": 122,
+        "declaration": "fn to_map(&self) -> HashMap<String, Value> { HashMap::new() }"
+      }
+    ]
+  },
+  {
+    "member": "crate/migration",
+    "package": "migration",
+    "features": {},
+    "source_lines": 2704,
+    "public_items": [
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 86,
+        "declaration": "pub async fn handle_migrate_sqlite(pool: &SqlitePool, dir: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 90,
+        "declaration": "pub async fn handle_migrate_tree_sqlite(pool: &SqlitePool, root: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 107,
+        "declaration": "pub async fn pending_migrations_sqlite(pool: &SqlitePool, dir: &str) -> Result<Vec<MigrationFile>> {"
+      },
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 111,
+        "declaration": "pub async fn pending_migrations_tree_sqlite(pool: &SqlitePool, root: &str) -> Result<Vec<MigrationFile>> {"
+      },
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 115,
+        "declaration": "pub async fn handle_show_migrations_sqlite(pool: &SqlitePool) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 149,
+        "declaration": "pub async fn handle_rollback_sqlite(pool: &SqlitePool, root: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 160,
+        "declaration": "pub async fn handle_reapply_sqlite(pool: &SqlitePool, root: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/sqlite_command_handlers.rs",
+        "line": 165,
+        "declaration": "pub async fn handle_reset_sqlite(pool: &SqlitePool, root: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 1,
+        "declaration": "pub mod apply;"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 2,
+        "declaration": "pub mod cli;"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 3,
+        "declaration": "pub mod command_handlers;"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 4,
+        "declaration": "pub mod diff;"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 5,
+        "declaration": "pub mod graph;"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 6,
+        "declaration": "pub mod operation;"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 7,
+        "declaration": "pub mod scanner;"
+      },
+      {
+        "file": "crate/migration/src/lib.rs",
+        "line": 8,
+        "declaration": "pub mod sqlite_command_handlers;"
+      },
+      {
+        "file": "crate/migration/src/scanner.rs",
+        "line": 12,
+        "declaration": "pub struct MigrationFile {"
+      },
+      {
+        "file": "crate/migration/src/scanner.rs",
+        "line": 48,
+        "declaration": "pub fn read_migrations(dir: &str) -> Result<Vec<MigrationFile>> {"
+      },
+      {
+        "file": "crate/migration/src/scanner.rs",
+        "line": 137,
+        "declaration": "pub fn read_migrations_tree(root: &str) -> Result<Vec<MigrationFile>> {"
+      },
+      {
+        "file": "crate/migration/src/scanner.rs",
+        "line": 184,
+        "declaration": "pub async fn ensure_table(pool: &PgPool) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/scanner.rs",
+        "line": 198,
+        "declaration": "pub async fn get_applied(pool: &PgPool) -> Result<HashMap<String, String>> {"
+      },
+      {
+        "file": "crate/migration/src/scanner.rs",
+        "line": 206,
+        "declaration": "pub fn collect_schemas() -> HashMap<String, HashMap<String, ColumnSpec>> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 17,
+        "declaration": "pub fn write_migration_file(path: &Path, content: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 33,
+        "declaration": "pub async fn handle_make_migration(dir: &str, name: &str, up: &str, down: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 166,
+        "declaration": "pub async fn handle_migrate(pool: &PgPool, dir: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 171,
+        "declaration": "pub async fn handle_migrate_tree(pool: &PgPool, root: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 175,
+        "declaration": "pub async fn handle_show_migrations(pool: &PgPool) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 219,
+        "declaration": "pub async fn pending_migrations(pool: &PgPool, dir: &str) -> Result<Vec<MigrationFile>> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 223,
+        "declaration": "pub async fn pending_migrations_tree(pool: &PgPool, root: &str) -> Result<Vec<MigrationFile>> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 227,
+        "declaration": "pub async fn handle_show_pending(pool: &PgPool, dir: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 290,
+        "declaration": "pub async fn handle_rollback(pool: &PgPool, dir: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 314,
+        "declaration": "pub async fn handle_reapply(pool: &PgPool, dir: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 319,
+        "declaration": "pub async fn handle_reset(pool: &PgPool, dir: &str) -> Result<()> {"
+      },
+      {
+        "file": "crate/migration/src/command_handlers.rs",
+        "line": 344,
+        "declaration": "pub fn migration_path(dir: &Path, name: &str, up: bool) -> PathBuf {"
+      },
+      {
+        "file": "crate/migration/src/diff.rs",
+        "line": 67,
+        "declaration": "pub fn diff_schema("
+      },
+      {
+        "file": "crate/migration/src/diff.rs",
+        "line": 170,
+        "declaration": "pub struct DynamicEntity;"
+      },
+      {
+        "file": "crate/migration/src/graph.rs",
+        "line": 9,
+        "declaration": "pub struct MigrationNode {"
+      },
+      {
+        "file": "crate/migration/src/graph.rs",
+        "line": 16,
+        "declaration": "pub struct MigrationGraph {"
+      },
+      {
+        "file": "crate/migration/src/operation.rs",
+        "line": 15,
+        "declaration": "pub enum MigrationOperation {"
+      },
+      {
+        "file": "crate/migration/src/operation.rs",
+        "line": 110,
+        "declaration": "pub fn operations_for_model<T: Entity>() -> Result<Vec<MigrationOperation>> {"
+      },
+      {
+        "file": "crate/migration/src/apply.rs",
+        "line": 13,
+        "declaration": "pub async fn ensure_migration_table(pool: &PgPool) -> Result<(), sqlx::Error> {"
+      },
+      {
+        "file": "crate/migration/src/apply.rs",
+        "line": 19,
+        "declaration": "pub async fn fetch_applied(pool: &PgPool) -> Result<HashMap<String, String>, sqlx::Error> {"
+      },
+      {
+        "file": "crate/migration/src/apply.rs",
+        "line": 25,
+        "declaration": "pub async fn apply_migration(pool: &PgPool, migration: &MigrationFile) -> Result<(), sqlx::Error> {"
+      },
+      {
+        "file": "crate/migration/src/apply.rs",
+        "line": 32,
+        "declaration": "pub async fn apply_migrations(url: &str, statements: &[String]) -> Result<(), String> {"
+      },
+      {
+        "file": "crate/migration/src/apply.rs",
+        "line": 64,
+        "declaration": "pub async fn load_current_db_schema("
+      },
+      {
+        "file": "crate/migration/src/apply.rs",
+        "line": 190,
+        "declaration": "pub async fn dispatch_command(command: &str, db_url: &str, dir: &str) -> Result<(), String> {"
+      },
+      {
+        "file": "crate/migration/src/cli.rs",
+        "line": 31,
+        "declaration": "pub struct Cli {"
+      },
+      {
+        "file": "crate/migration/src/cli.rs",
+        "line": 75,
+        "declaration": "pub async fn run_migration_cli() -> Result<()> {"
+      }
+    ],
+    "tests": []
+  },
+  {
+    "member": "crate/secure_input",
+    "package": "secure_input",
+    "features": {},
+    "source_lines": 1514,
+    "public_items": [
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 1,
+        "declaration": "pub mod error;"
+      },
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 2,
+        "declaration": "pub mod filter;"
+      },
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 3,
+        "declaration": "pub mod pipeline;"
+      },
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 4,
+        "declaration": "pub mod sanitize;"
+      },
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 5,
+        "declaration": "pub mod validate;"
+      },
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 10,
+        "declaration": "pub mod validation_pluse;"
+      },
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 16,
+        "declaration": "pub mod encoding;"
+      },
+      {
+        "file": "crate/secure_input/src/lib.rs",
+        "line": 17,
+        "declaration": "pub mod types;"
+      },
+      {
+        "file": "crate/secure_input/src/error.rs",
+        "line": 17,
+        "declaration": "pub enum ValidationError {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 27,
+        "declaration": "pub fn sanitize_html_whitelist(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 32,
+        "declaration": "pub fn escape_json_string(input: &str) -> Result<String, serde_json::Error> {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 37,
+        "declaration": "pub struct XmlEscapeError {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 54,
+        "declaration": "pub fn escape_xml_text<T: serde::Serialize>(value: &T) -> Result<String, XmlEscapeError> {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 62,
+        "declaration": "pub fn escape_js_str(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 85,
+        "declaration": "pub fn js_assignment(var: &str, val: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 94,
+        "declaration": "pub fn escape_css_string(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 114,
+        "declaration": "pub fn css_content_rule(val: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 118,
+        "declaration": "pub fn encode_url_param(input: &str) -> Cow<'_, str> {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 122,
+        "declaration": "pub fn build_query_string(params: &[(&str, &str)]) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 141,
+        "declaration": "pub struct XssFilter;"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 164,
+        "declaration": "pub struct AiValidator {"
+      },
+      {
+        "file": "crate/secure_input/src/encoding.rs",
+        "line": 198,
+        "declaration": "pub struct SanitizationPipeline {"
+      },
+      {
+        "file": "crate/secure_input/src/filter.rs",
+        "line": 5,
+        "declaration": "pub trait Filter {"
+      },
+      {
+        "file": "crate/secure_input/src/filter.rs",
+        "line": 16,
+        "declaration": "pub fn normalize(input: &str) -> Result<String, ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/filter.rs",
+        "line": 21,
+        "declaration": "pub fn validate_input(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/filter.rs",
+        "line": 26,
+        "declaration": "pub fn validate_filename(filename: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/filter.rs",
+        "line": 31,
+        "declaration": "pub fn is_clean_payload(input: &str) -> bool {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 15,
+        "declaration": "pub trait Validator {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 47,
+        "declaration": "pub fn validate_username(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 57,
+        "declaration": "pub fn validate_url(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 67,
+        "declaration": "pub fn validate_uuid(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 74,
+        "declaration": "pub fn validate_ip(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 81,
+        "declaration": "pub fn validate_hex(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 91,
+        "declaration": "pub fn validate_phone(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 102,
+        "declaration": "pub fn validate_input(input: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validate.rs",
+        "line": 127,
+        "declaration": "pub fn validate_filename(raw: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 11,
+        "declaration": "pub trait Sanitizer: Send + Sync {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 16,
+        "declaration": "pub struct FnSanitizer(pub fn(&str) -> String);"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 51,
+        "declaration": "pub fn normalize_unicode(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 55,
+        "declaration": "pub fn sanitize_string(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 61,
+        "declaration": "pub fn sanitize_html(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 65,
+        "declaration": "pub fn collapse_whitespace(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 69,
+        "declaration": "pub fn remove_special_chars(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 73,
+        "declaration": "pub fn sanitize_numeric(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 77,
+        "declaration": "pub fn escape_html(input: &str) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 82,
+        "declaration": "pub fn chain(input: &str, sanitizers: &[&dyn Sanitizer]) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 90,
+        "declaration": "pub fn reject_sqli(input: &str) -> Result<&str, ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 98,
+        "declaration": "pub fn reject_base64(input: &str) -> Result<&str, ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 106,
+        "declaration": "pub fn reject_script(input: &str) -> Result<&str, ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 116,
+        "declaration": "pub fn reject_dangerous_ext(name: &str) -> Result<&str, ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 128,
+        "declaration": "pub fn validate_email(input: &str) -> bool {"
+      },
+      {
+        "file": "crate/secure_input/src/sanitize.rs",
+        "line": 132,
+        "declaration": "pub fn enforce_length(input: &str, max: usize) -> Result<&str, ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 19,
+        "declaration": "pub trait Stage {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 25,
+        "declaration": "pub struct SanitizerStage<S> {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 42,
+        "declaration": "pub struct ValidatorStage<V> {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 62,
+        "declaration": "pub struct FilterStage<F> {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 81,
+        "declaration": "pub struct FnSanitizer<F>(pub F);"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 117,
+        "declaration": "pub struct Pipeline {"
+      },
+      {
+        "file": "crate/secure_input/src/validation_pluse.rs",
+        "line": 26,
+        "declaration": "pub enum PasswordStrength {"
+      },
+      {
+        "file": "crate/secure_input/src/validation_pluse.rs",
+        "line": 51,
+        "declaration": "pub fn evaluate_password_strength(password: &str) -> PasswordStrength {"
+      },
+      {
+        "file": "crate/secure_input/src/validation_pluse.rs",
+        "line": 101,
+        "declaration": "pub fn colored_strength_label(strength: &PasswordStrength) -> String {"
+      },
+      {
+        "file": "crate/secure_input/src/validation_pluse.rs",
+        "line": 117,
+        "declaration": "pub fn validate_password(password: &str) -> Result<(), ValidationError> {"
+      },
+      {
+        "file": "crate/secure_input/src/validation_pluse.rs",
+        "line": 146,
+        "declaration": "pub fn validate_email(email: &str) -> Result<(), ValidationError> {"
+      }
+    ],
+    "tests": [
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 335,
+        "declaration": "fn test_html_whitelist() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 343,
+        "declaration": "fn test_escape_json_and_xml() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 354,
+        "declaration": "fn test_js_and_css_and_url() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 369,
+        "declaration": "fn test_build_query() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 376,
+        "declaration": "fn test_validate_username_url_uuid_ip_hex_phone() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 410,
+        "declaration": "fn test_payload_and_filename_checks() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 423,
+        "declaration": "fn test_sanitizer_helpers() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 436,
+        "declaration": "fn test_whitespace_special_email_length() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 448,
+        "declaration": "fn test_reject_filters() {"
+      },
+      {
+        "file": "crate/secure_input/src/pipeline.rs",
+        "line": 460,
+        "declaration": "fn test_chain_macro_and_run_sequence() {"
+      }
+    ]
+  },
+  {
+    "member": "crate/models",
+    "package": "models",
+    "features": {},
+    "source_lines": 340,
+    "public_items": [
+      {
+        "file": "crate/models/src/lib.rs",
+        "line": 1,
+        "declaration": "pub mod user;"
+      },
+      {
+        "file": "crate/models/src/lib.rs",
+        "line": 8,
+        "declaration": "pub fn register_all_models() {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 13,
+        "declaration": "pub enum PermissionAction {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 25,
+        "declaration": "pub enum UserRole {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 35,
+        "declaration": "pub struct ApiKey {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 78,
+        "declaration": "pub struct User {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 132,
+        "declaration": "pub struct Tenant {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 165,
+        "declaration": "pub struct Membership {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 203,
+        "declaration": "pub struct TenantRole {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 227,
+        "declaration": "pub struct TenantRolePermission {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 247,
+        "declaration": "pub struct PermissionDefinition {"
+      },
+      {
+        "file": "crate/models/src/user.rs",
+        "line": 261,
+        "declaration": "pub struct RoleDefinition {"
+      }
+    ],
+    "tests": []
+  },
+  {
+    "member": "crate/media",
+    "package": "media",
+    "features": {},
+    "source_lines": 243,
+    "public_items": [
+      {
+        "file": "crate/media/src/media_config.rs",
+        "line": 6,
+        "declaration": "pub enum MediaConfigError {"
+      },
+      {
+        "file": "crate/media/src/media_config.rs",
+        "line": 15,
+        "declaration": "pub enum MediaStorageBackend {"
+      },
+      {
+        "file": "crate/media/src/media_config.rs",
+        "line": 27,
+        "declaration": "pub enum MalwareScannerBackend {"
+      },
+      {
+        "file": "crate/media/src/media_config.rs",
+        "line": 35,
+        "declaration": "pub struct S3Settings {"
+      },
+      {
+        "file": "crate/media/src/media_config.rs",
+        "line": 63,
+        "declaration": "pub struct ClamAvSettings {"
+      },
+      {
+        "file": "crate/media/src/media_config.rs",
+        "line": 78,
+        "declaration": "pub struct MediaSettings {"
+      },
+      {
+        "file": "crate/media/src/lib.rs",
+        "line": 2,
+        "declaration": "pub mod media_config;"
+      },
+      {
+        "file": "crate/media/src/lib.rs",
+        "line": 3,
+        "declaration": "pub mod upload;"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 8,
+        "declaration": "pub enum MediaError {"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 27,
+        "declaration": "pub trait MediaStorage: Send + Sync {"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 34,
+        "declaration": "pub struct MemoryStorage { objects: Arc<RwLock<BTreeMap<String, Vec<u8>>>> }"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 44,
+        "declaration": "pub struct FileSystemStorage { root: PathBuf }"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 59,
+        "declaration": "pub type SharedMediaStorage = Arc<dyn MediaStorage>;"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 62,
+        "declaration": "pub trait MalwareScanner: Send + Sync { async fn scan(&self, name:&str, bytes:&[u8])->Result<ScanResult,MediaError>; }"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 70,
+        "declaration": "pub struct ClamAvScanner { host: String, port: u16, timeout: Duration }"
+      },
+      {
+        "file": "crate/media/src/upload.rs",
+        "line": 91,
+        "declaration": "pub trait ClamAvTransport: MalwareScanner {}"
+      }
+    ],
+    "tests": []
+  },
+  {
+    "member": "crate/lex_rest",
+    "package": "lex_rest",
+    "features": {
+      "default": [],
+      "axum": [
+        "dep:axum"
+      ],
+      "axum-rustls": [
+        "axum",
+        "dep:axum-server"
+      ]
+    },
+    "source_lines": 8108,
+    "public_items": [
+      {
+        "file": "crate/lex_rest/src/lib.rs",
+        "line": 7,
+        "declaration": "pub mod rest_framework;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/routing.rs",
+        "line": 16,
+        "declaration": "pub enum RouteEndpoint {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/routing.rs",
+        "line": 31,
+        "declaration": "pub struct RouteSpec {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/routing.rs",
+        "line": 81,
+        "declaration": "pub struct ResolvedRoute {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/routing.rs",
+        "line": 87,
+        "declaration": "pub struct RouteTable {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/idempotency.rs",
+        "line": 13,
+        "declaration": "pub enum IdempotencyRequirement {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/idempotency.rs",
+        "line": 20,
+        "declaration": "pub struct IdempotencyPolicy {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/idempotency.rs",
+        "line": 55,
+        "declaration": "pub enum IdempotencyReservation {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/idempotency.rs",
+        "line": 66,
+        "declaration": "pub trait IdempotencyStore: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/idempotency.rs",
+        "line": 93,
+        "declaration": "pub struct IdempotencyInput {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/idempotency.rs",
+        "line": 99,
+        "declaration": "pub fn prepare_idempotency("
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mixins.rs",
+        "line": 15,
+        "declaration": "pub trait ListModelMixin<T>: Send + Sync"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mixins.rs",
+        "line": 38,
+        "declaration": "pub trait RetrieveModelMixin<T>: Send + Sync"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mixins.rs",
+        "line": 64,
+        "declaration": "pub trait CreateModelMixin<T>: Send + Sync"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mixins.rs",
+        "line": 87,
+        "declaration": "pub trait UpdateModelMixin<T>: Send + Sync"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mixins.rs",
+        "line": 114,
+        "declaration": "pub trait DestroyModelMixin<T>: Send + Sync"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 1,
+        "declaration": "pub mod audit;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 2,
+        "declaration": "pub mod authentication;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 3,
+        "declaration": "pub mod exceptions;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 4,
+        "declaration": "pub mod generic;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 5,
+        "declaration": "pub mod idempotency;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 6,
+        "declaration": "pub mod middleware;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 7,
+        "declaration": "pub mod mixins;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 8,
+        "declaration": "pub mod permissions;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 9,
+        "declaration": "pub mod request;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 10,
+        "declaration": "pub mod response;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 11,
+        "declaration": "pub mod routing;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 12,
+        "declaration": "pub mod schema;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 13,
+        "declaration": "pub mod throttling;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 14,
+        "declaration": "pub mod views;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 15,
+        "declaration": "pub mod viewsets;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 16,
+        "declaration": "pub mod websocket;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 19,
+        "declaration": "pub mod adapters;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/mod.rs",
+        "line": 21,
+        "declaration": "pub mod prelude {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/schema.rs",
+        "line": 9,
+        "declaration": "pub struct SecuritySchemeMetadata {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/schema.rs",
+        "line": 15,
+        "declaration": "pub struct OperationMetadata {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/schema.rs",
+        "line": 42,
+        "declaration": "pub struct ApiSchema {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/audit.rs",
+        "line": 11,
+        "declaration": "pub enum AuditOutcome {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/audit.rs",
+        "line": 20,
+        "declaration": "pub struct AuditEvent {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/audit.rs",
+        "line": 97,
+        "declaration": "pub trait AuditSink: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/audit.rs",
+        "line": 102,
+        "declaration": "pub struct TracingAuditSink;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/response.rs",
+        "line": 8,
+        "declaration": "pub enum ApiBody {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/response.rs",
+        "line": 16,
+        "declaration": "pub struct ApiResponse {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/exceptions.rs",
+        "line": 10,
+        "declaration": "pub type ApiResult<T> = Result<T, ApiError>;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/exceptions.rs",
+        "line": 13,
+        "declaration": "pub struct ErrorDocument {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/exceptions.rs",
+        "line": 23,
+        "declaration": "pub struct ApiError {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 21,
+        "declaration": "pub trait ModelFactory<T>: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 30,
+        "declaration": "pub trait ModelMutationAdapter<T>: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 45,
+        "declaration": "pub struct OrmModelMutationAdapter<T, F> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 206,
+        "declaration": "pub struct GenericAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 643,
+        "declaration": "pub struct ListAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 665,
+        "declaration": "pub struct ListCreateAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 700,
+        "declaration": "pub struct RetrieveAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 722,
+        "declaration": "pub struct RetrieveUpdateAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 757,
+        "declaration": "pub struct RetrieveUpdateDestroyAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 792,
+        "declaration": "pub struct CreateAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 824,
+        "declaration": "pub struct UpdateAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 856,
+        "declaration": "pub struct DestroyAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 888,
+        "declaration": "pub struct RetrieveDestroyAPIView<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/generic.rs",
+        "line": 923,
+        "declaration": "pub trait RestModel:"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/websocket.rs",
+        "line": 14,
+        "declaration": "pub enum WebSocketMessage {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/websocket.rs",
+        "line": 23,
+        "declaration": "pub struct WebSocketCloseFrame {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/websocket.rs",
+        "line": 29,
+        "declaration": "pub trait WebSocketSession: Send {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/websocket.rs",
+        "line": 37,
+        "declaration": "pub struct WebSocketSecurityPolicy {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/websocket.rs",
+        "line": 146,
+        "declaration": "pub struct SecuredWebSocketSession {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/websocket.rs",
+        "line": 222,
+        "declaration": "pub trait WebSocketView: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/websocket.rs",
+        "line": 250,
+        "declaration": "pub fn validate_subprotocols(protocols: &[String]) -> ApiResult<()> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/views.rs",
+        "line": 17,
+        "declaration": "pub enum ViewAccess {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/views.rs",
+        "line": 31,
+        "declaration": "pub struct ViewPermissions {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/views.rs",
+        "line": 98,
+        "declaration": "pub struct ViewServices {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/views.rs",
+        "line": 138,
+        "declaration": "pub trait APIView: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/views.rs",
+        "line": 297,
+        "declaration": "pub fn is_read_only_method(method: &Method) -> bool {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/viewsets.rs",
+        "line": 25,
+        "declaration": "pub struct ViewSetActions {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/viewsets.rs",
+        "line": 59,
+        "declaration": "pub struct ViewSetOperationMetadata {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/viewsets.rs",
+        "line": 68,
+        "declaration": "pub struct ModelViewSet<T> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/throttling.rs",
+        "line": 15,
+        "declaration": "pub enum ThrottleKey {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/throttling.rs",
+        "line": 24,
+        "declaration": "pub struct ThrottlePolicy {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/throttling.rs",
+        "line": 54,
+        "declaration": "pub struct ThrottleLease {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/throttling.rs",
+        "line": 64,
+        "declaration": "pub trait DistributedThrottleStore: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/throttling.rs",
+        "line": 75,
+        "declaration": "pub struct ThrottleEngine {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 14,
+        "declaration": "pub enum AuthenticationOutcome {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 27,
+        "declaration": "pub trait AuthenticationBackend: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 38,
+        "declaration": "pub struct AuthenticationChain {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 89,
+        "declaration": "pub trait TrustedPrincipalResolver: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 93,
+        "declaration": "pub struct TrustedBoundaryAuthentication<R> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 125,
+        "declaration": "pub struct SessionIdentity {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 133,
+        "declaration": "pub trait SessionStore: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 142,
+        "declaration": "pub struct SessionAuthenticationConfig {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 160,
+        "declaration": "pub struct SessionAuthentication {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 211,
+        "declaration": "pub struct CookieIdentity {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 217,
+        "declaration": "pub trait CookiePrincipalResolver: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 226,
+        "declaration": "pub struct CookieAuthenticationConfig {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 244,
+        "declaration": "pub struct CookieAuthentication {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 298,
+        "declaration": "pub trait BearerTokenResolver: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 307,
+        "declaration": "pub struct BearerTokenAuthenticationConfig {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/authentication.rs",
+        "line": 319,
+        "declaration": "pub struct BearerTokenAuthentication {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/request.rs",
+        "line": 17,
+        "declaration": "pub enum PrincipalKind {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/request.rs",
+        "line": 29,
+        "declaration": "pub struct Principal {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/request.rs",
+        "line": 185,
+        "declaration": "pub enum TransportSecurity {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/request.rs",
+        "line": 198,
+        "declaration": "pub struct RequestContext {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/request.rs",
+        "line": 321,
+        "declaration": "pub struct ApiRequest {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 19,
+        "declaration": "pub struct PermissionResource {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 38,
+        "declaration": "pub struct PermissionDecision {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 60,
+        "declaration": "pub trait PermissionBackend: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 91,
+        "declaration": "pub struct ScopePermissionConfig {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 114,
+        "declaration": "pub struct ScopePermissionBackend {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 160,
+        "declaration": "pub struct DenyAllPermissionBackend;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 186,
+        "declaration": "pub struct UserSecurityRecord {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 191,
+        "declaration": "pub struct MembershipSecurityRecord {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 197,
+        "declaration": "pub trait PermissionRepository: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 214,
+        "declaration": "pub struct SqlxPermissionRepository {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 312,
+        "declaration": "pub struct DatabasePermissionConfig {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 332,
+        "declaration": "pub struct DatabasePermissionBackend<R = SqlxPermissionRepository> {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 493,
+        "declaration": "pub struct Permissions;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/permissions.rs",
+        "line": 546,
+        "declaration": "pub enum PermissionExpr {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 24,
+        "declaration": "pub trait TenantResolver: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 36,
+        "declaration": "pub struct NoTenantResolver;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 50,
+        "declaration": "pub trait RequestMiddleware: Send + Sync {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 71,
+        "declaration": "pub struct RequestLimitsMiddleware {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 160,
+        "declaration": "pub struct SecurityHeadersMiddleware {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 256,
+        "declaration": "pub struct CorsMiddleware {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 295,
+        "declaration": "pub struct RestRuntime {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 308,
+        "declaration": "pub struct RestRuntimeBuilder {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/middleware.rs",
+        "line": 755,
+        "declaration": "pub struct RestApplication {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/adapters/mod.rs",
+        "line": 1,
+        "declaration": "pub mod axum;"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/adapters/axum.rs",
+        "line": 27,
+        "declaration": "pub struct AxumAdapter {"
+      },
+      {
+        "file": "crate/lex_rest/src/rest_framework/adapters/axum.rs",
+        "line": 303,
+        "declaration": "pub async fn serve_wss("
+      }
+    ],
+    "tests": [
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 20,
+        "declaration": "fn name(&self) -> &'static str {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 24,
+        "declaration": "async fn authenticate(&self, request: &ApiRequest) -> ApiResult<AuthenticationOutcome> {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 40,
+        "declaration": "fn challenge(&self) -> Option<String> {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 49,
+        "declaration": "async fn has_permission("
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 57,
+        "declaration": "async fn has_object_permission("
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 66,
+        "declaration": "async fn is_tenant_member(&self, _context: &RequestContext) -> ApiResult<bool> {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 70,
+        "declaration": "async fn is_tenant_admin(&self, _context: &RequestContext) -> ApiResult<bool> {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 74,
+        "declaration": "async fn is_global_admin(&self, _context: &RequestContext) -> ApiResult<bool> {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 83,
+        "declaration": "fn name(&self) -> &'static str {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 87,
+        "declaration": "fn allowed_methods(&self) -> Vec<Method> {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 91,
+        "declaration": "async fn get("
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 101,
+        "declaration": "fn application() -> RestApplication {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 120,
+        "declaration": "fn request("
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 147,
+        "declaration": "async fn anonymous_request_is_challenged_and_security_headers_are_present() {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 166,
+        "declaration": "async fn invalid_presented_credentials_fail_closed() {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 184,
+        "declaration": "async fn authenticated_request_reaches_view() {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 198,
+        "declaration": "async fn routing_errors_still_receive_security_headers_and_request_id() {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 208,
+        "declaration": "async fn method_not_allowed_reports_allow_header() {"
+      },
+      {
+        "file": "crate/lex_rest/tests/runtime_security.rs",
+        "line": 222,
+        "declaration": "async fn insecure_transport_is_rejected_without_hsts() {"
+      },
+      {
+        "file": "crate/lex_rest/tests/postgres_permissions.rs",
+        "line": 11,
+        "declaration": "fn require_disposable_database() -> String {"
+      },
+      {
+        "file": "crate/lex_rest/tests/postgres_permissions.rs",
+        "line": 22,
+        "declaration": "async fn database_permission_backend_enforces_membership_role_and_permission_integrity() {"
+      },
+      {
+        "file": "crate/lex_rest/tests/postgres_mutation.rs",
+        "line": 15,
+        "declaration": "fn build_create("
+      },
+      {
+        "file": "crate/lex_rest/tests/postgres_mutation.rs",
+        "line": 28,
+        "declaration": "fn test_tenant(id: Uuid, name: &str) -> Tenant {"
+      },
+      {
+        "file": "crate/lex_rest/tests/postgres_mutation.rs",
+        "line": 42,
+        "declaration": "async fn invalid_model_update_rolls_back_before_commit() {"
+      }
+    ]
+  },
+  {
+    "member": "crate/lex_cli",
+    "package": "lex_cli",
+    "features": {},
+    "source_lines": 2391,
+    "public_items": [
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 1,
+        "declaration": "pub mod ops;"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 20,
+        "declaration": "pub struct ProjectManifest {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 51,
+        "declaration": "pub struct AppManifest {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 75,
+        "declaration": "pub struct ScaffoldOptions {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 82,
+        "declaration": "pub struct SettingsOptions {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 89,
+        "declaration": "pub struct CheckReport {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 101,
+        "declaration": "pub fn find_workspace_root(start: impl AsRef<Path>) -> Result<PathBuf> {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 123,
+        "declaration": "pub fn create_settings(root: &Path, options: &SettingsOptions) -> Result<()> {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 161,
+        "declaration": "pub fn create_crate(root: &Path, options: &ScaffoldOptions) -> Result<PathBuf> {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 206,
+        "declaration": "pub fn refresh(root: &Path) -> Result<Vec<AppManifest>> {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 211,
+        "declaration": "pub fn project_check(root: &Path) -> Result<CheckReport> {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 271,
+        "declaration": "pub fn start_server("
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 292,
+        "declaration": "pub fn run_cargo_command(root: &Path, args: &[&str]) -> Result<ExitStatus> {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 300,
+        "declaration": "pub fn run_migration_command(root: &Path, args: &[String]) -> Result<ExitStatus> {"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 556,
+        "declaration": "pub fn init_tracing(){ let filter=env::var(\"RUST_LOG\").unwrap_or_else(|_|\"info\".to_owned()); let _=tracing_subscriber::fmt().with_env_filter(EnvFilter::new(filter)).try_init(); }"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 557,
+        "declaration": "pub fn load()->Result<FrameworkSettings>{FrameworkSettings::load()}"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 558,
+        "declaration": "pub fn is_production()->bool{lex_framework::is_production()}"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 559,
+        "declaration": "pub fn require_secure_transport()->bool{is_production()}"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 560,
+        "declaration": "pub fn assert_trusted_tls_boundary()->Result<()> { if !is_production(){return Ok(())} let ok=env::var(\"LEX_TRUSTED_TLS_TERMINATION\").map(|v|v.eq_ignore_ascii_case(\"true\")||v==\"1\").unwrap_or(false); if !ok{bail!(\"production startup requires TLS; set LEX_TRUSTED_TLS_TERMINATION=true only behind a trusted TLS ingress/proxy\")} Ok(()) }"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 578,
+        "declaration": "pub fn build_routes() -> ApiResult<RouteTable> {\\n    let mut table = RouteTable::new();\\n    table.register(RouteSpec::http(\\\"/health\\\", \\\"framework-health\\\", std::sync::Arc::new(HealthView)))?;\\n\","
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 682,
+        "declaration": "pub struct {type_name}Item {{"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 690,
+        "declaration": "pub fn register_models() {{"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 709,
+        "declaration": "pub struct {type_name}IndexView;"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 749,
+        "declaration": "pub fn routes() -> ApiResult<Vec<RouteSpec>> {{"
+      },
+      {
+        "file": "crate/lex_cli/src/lib.rs",
+        "line": 1159,
+        "declaration": "pub fn to_snake_case(value: &str) -> String {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 13,
+        "declaration": "pub enum AuditKind {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 21,
+        "declaration": "pub enum VerifyKind {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 29,
+        "declaration": "pub struct PostgresTestOptions {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 50,
+        "declaration": "pub struct PostgresTestConfig {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 58,
+        "declaration": "pub fn audit(root: &Path, kind: AuditKind) -> Result<()> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 72,
+        "declaration": "pub fn verify(root: &Path, kind: VerifyKind, include_postgres: bool) -> Result<()> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 90,
+        "declaration": "pub fn verify_framework(root: &Path) -> Result<()> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 118,
+        "declaration": "pub fn verify_sqlite(root: &Path) -> Result<()> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 127,
+        "declaration": "pub fn verify_postgres(root: &Path) -> Result<()> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 141,
+        "declaration": "pub fn setup_test_postgres(root: &Path, options: &PostgresTestOptions) -> Result<PostgresTestConfig> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 231,
+        "declaration": "pub fn postgres_test_status(root: &Path) -> Result<PostgresTestConfig> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 626,
+        "declaration": "pub fn cargo_status(root: &Path, args: &[&str]) -> Result<ExitStatus> {"
+      }
+    ],
+    "tests": [
+      {
+        "file": "crate/lex_cli/tests/scaffolding.rs",
+        "line": 6,
+        "declaration": "fn workspace(root: &Path) {"
+      },
+      {
+        "file": "crate/lex_cli/tests/scaffolding.rs",
+        "line": 32,
+        "declaration": "fn generated_application_is_registered_with_server_without_manual_url_wiring() {"
+      },
+      {
+        "file": "crate/lex_cli/tests/scaffolding.rs",
+        "line": 63,
+        "declaration": "fn refresh_preserves_developer_owned_view_source() {"
+      },
+      {
+        "file": "crate/lex_cli/tests/scaffolding.rs",
+        "line": 91,
+        "declaration": "fn structural_check_accepts_a_generated_project() {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 532,
+        "declaration": "fn persist_postgres_test_config(root: &Path, config: &PostgresTestConfig) -> Result<()> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 545,
+        "declaration": "fn load_postgres_test_config(root: &Path) -> Result<PostgresTestConfig> {"
+      },
+      {
+        "file": "crate/lex_cli/src/ops.rs",
+        "line": 558,
+        "declaration": "fn postgres_test_database_url(root: &Path) -> Result<String> {"
+      }
+    ]
+  },
+  {
+    "member": "crate/lex_framework",
+    "package": "lex_framework",
+    "features": {},
+    "source_lines": 933,
+    "public_items": [
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 32,
+        "declaration": "pub mod views {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 41,
+        "declaration": "pub mod authentication {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 46,
+        "declaration": "pub mod permissions {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 54,
+        "declaration": "pub mod middleware {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 60,
+        "declaration": "pub mod prelude {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 77,
+        "declaration": "pub struct CorsSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 116,
+        "declaration": "pub struct HeaderSecuritySettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 136,
+        "declaration": "pub struct RequestLimitSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 156,
+        "declaration": "pub struct SessionAuthSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 178,
+        "declaration": "pub struct CookieAuthSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 202,
+        "declaration": "pub struct BearerAuthSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 221,
+        "declaration": "pub struct AuthenticationSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 243,
+        "declaration": "pub struct PermissionSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 265,
+        "declaration": "pub struct SecuritySettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 282,
+        "declaration": "pub struct FrameworkSettings {"
+      },
+      {
+        "file": "crate/lex_framework/src/lib.rs",
+        "line": 444,
+        "declaration": "pub fn is_production() -> bool {"
+      },
+      {
+        "file": "crate/lex_framework/src/auth_runtime.rs",
+        "line": 268,
+        "declaration": "pub struct FrameworkAuthService {"
+      },
+      {
+        "file": "crate/lex_framework/src/auth_runtime.rs",
+        "line": 306,
+        "declaration": "pub struct IssuedSession { pub token: String, pub csrf_token: String, pub expires_at_epoch: i64 }"
+      },
+      {
+        "file": "crate/lex_framework/src/auth_runtime.rs",
+        "line": 308,
+        "declaration": "pub struct IssuedBearerToken { pub token: String, pub token_id: Uuid, pub expires_at_epoch: i64 }"
+      },
+      {
+        "file": "crate/lex_framework/src/auth_runtime.rs",
+        "line": 310,
+        "declaration": "pub struct IssuedCookie { pub value: String, pub csrf_token: String, pub expires_at_epoch: i64 }"
+      }
+    ],
+    "tests": []
+  },
+  {
+    "member": "project",
+    "package": "lex_framework_server",
+    "features": {},
+    "source_lines": 146,
+    "public_items": [
+      {
+        "file": "project/src/urls.rs",
+        "line": 7,
+        "declaration": "pub fn build_routes() -> ApiResult<RouteTable> {"
+      },
+      {
+        "file": "project/src/apps.rs",
+        "line": 3,
+        "declaration": "pub fn register_models() {}"
+      },
+      {
+        "file": "project/src/settings.rs",
+        "line": 6,
+        "declaration": "pub fn init_tracing(){ let filter=env::var(\"RUST_LOG\").unwrap_or_else(|_|\"info\".to_owned()); let _=tracing_subscriber::fmt().with_env_filter(EnvFilter::new(filter)).try_init(); }"
+      },
+      {
+        "file": "project/src/settings.rs",
+        "line": 7,
+        "declaration": "pub fn load()->Result<FrameworkSettings>{FrameworkSettings::load()}"
+      },
+      {
+        "file": "project/src/settings.rs",
+        "line": 8,
+        "declaration": "pub fn is_production()->bool{lex_framework::is_production()}"
+      },
+      {
+        "file": "project/src/settings.rs",
+        "line": 9,
+        "declaration": "pub fn require_secure_transport()->bool{is_production()}"
+      },
+      {
+        "file": "project/src/settings.rs",
+        "line": 10,
+        "declaration": "pub fn assert_trusted_tls_boundary()->Result<()> { if !is_production(){return Ok(())} let ok=env::var(\"LEX_TRUSTED_TLS_TERMINATION\").map(|v|v.eq_ignore_ascii_case(\"true\")||v==\"1\").unwrap_or(false); if !ok{bail!(\"production startup requires TLS; set LEX_TRUSTED_TLS_TERMINATION=true only behind a trusted TLS ingress/proxy\")} Ok(()) }"
+      }
+    ],
+    "tests": []
+  }
+]

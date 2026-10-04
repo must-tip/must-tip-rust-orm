@@ -1,0 +1,22 @@
+[
+  {
+    "name": "docs-site",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit_code": 0,
+    "log": "audit/release-docs-site.log"
+  },
+  {
+    "name": "npm-audit",
+    "command": [
+      "npm",
+      "audit",
+      "--audit-level=high"
+    ],
+    "exit_code": 0,
+    "log": "audit/release-npm-audit.log"
+  }
+]

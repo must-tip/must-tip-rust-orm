@@ -1,0 +1,124 @@
+# Lex project settings. Safe configuration belongs here; secrets belong in environment/system credentials.
+debug = true
+
+[database]
+backend = "auto"
+max_connections = 10
+min_connections = 1
+connect_timeout_secs = 10
+connect_retries = 5
+require_ssl = false
+run_migrations = false
+migrations_dir = "./migrations"
+read_replica_max_connections = 5
+read_replica_min_connections = 0
+require_all_read_replicas = false
+sqlite_create_if_missing = true
+sqlite_foreign_keys = true
+sqlite_wal = true
+sqlite_busy_timeout_ms = 5000
+
+[server]
+host = "127.0.0.1"
+port = 8080
+
+[media]
+enabled = true
+# memory = test-only; filesystem = local storage; s3 runtime is incomplete and must not be deployed.
+storage = "filesystem"
+local_root = "./media"
+temp_root = "./.lex/uploads"
+max_upload_bytes = 26214400
+allowed_content_types = ["image/jpeg", "image/png", "image/webp", "application/pdf"]
+# Set to "clamav" after running clamd and configuring [media.clamav].
+scanner = "disabled"
+
+[media.s3]
+# Backblaze example endpoint: https://s3.us-west-004.backblazeb2.com
+# endpoint = "https://s3.us-west-004.backblazeb2.com"
+# region = "us-west-004"
+# bucket = "my-private-media"
+# public_base_url = "https://cdn.example.com"
+force_path_style = false
+# Credentials are read from these environment variable NAMES, never stored here.
+access_key_env = "LEX_MEDIA_S3_ACCESS_KEY_ID"
+secret_key_env = "LEX_MEDIA_S3_SECRET_ACCESS_KEY"
+
+[media.clamav]
+host = "127.0.0.1"
+port = 3310
+timeout_secs = 15
+# Recommended in production: reject uploads if the scanner is unavailable.
+fail_closed = true
+
+
+[security.authentication]
+# Ordered authentication chain. Supported values: "session", "cookie", "bearer".
+# Examples:
+#   Browser/server-rendered app: ["session"]
+#   JSON/mobile API:             ["bearer"]
+#   Hybrid browser + API:        ["session", "bearer"]
+#   Stateless signed cookie:     ["cookie"]
+# Authentication is framework-owned. Enable the mechanisms you want; no provider code is required.
+# Protected views are the default. Public views opt in with `ViewPermissions` + `Permissions::public()`.
+backends = []
+
+[security.authentication.session]
+# Server-side session ID stored in a cookie. Lex creates and verifies the session store automatically.
+cookie_name = "lex_session"
+# Development may use HTTP; production validation requires true.
+require_secure_transport = false
+# Keep enabled for browser session authentication. Unsafe methods require X-CSRF-Token.
+csrf_protection = true
+csrf_header = "x-csrf-token"
+ttl_secs = 86400
+
+[security.authentication.cookie]
+# Stateless HMAC-SHA256 signed authentication cookie managed by Lex.
+# The signing key stays outside Config.toml and is loaded from `secret_env`.
+cookie_name = "lex_auth"
+require_secure_transport = false
+csrf_protection = true
+csrf_header = "x-csrf-token"
+ttl_secs = 86400
+secret_env = "LEX_AUTH_COOKIE_SECRET"
+
+[security.authentication.bearer]
+# Lex-managed opaque bearer tokens. Only SHA-256 token digests are persisted.
+scheme = "Bearer"
+ttl_secs = 2592000
+
+[security.permissions]
+# `scopes` is the easiest default: named permissions are scopes issued with a session/token.
+# `database` enables the existing PostgreSQL tenant-role permission models.
+backend = "scopes"
+global_admin_scope = "admin:global"
+tenant_member_scope = "tenant:member"
+tenant_admin_scope = "tenant:admin"
+
+[security.cors]
+enabled = true
+allowed_origins = ["http://localhost:3000"]
+allowed_methods = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+allowed_headers = ["Authorization", "Content-Type", "Idempotency-Key", "X-Request-ID", "X-CSRF-Token"]
+expose_headers = ["X-Request-ID"]
+allow_credentials = false
+max_age_secs = 600
+
+[security.headers]
+enabled = true
+# Django-CSP style policy, emitted as Content-Security-Policy.
+csp = "default-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+permissions_policy = "camera=(), microphone=(), geolocation=()"
+# Set to an empty/omitted value only when HSTS is handled at a trusted edge.
+hsts = "max-age=31536000; includeSubDomains"
+
+[security.request_limits]
+max_uri_bytes = 8192
+max_header_count = 100
+max_header_bytes = 65536
+max_single_header_bytes = 16384
+
+[security]
+# Keep 0 unless your deployment explicitly trusts proxy-derived client metadata.
+trusted_proxy_hops = 0

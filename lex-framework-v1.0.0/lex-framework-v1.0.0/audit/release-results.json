@@ -1,0 +1,360 @@
+[
+  {
+    "name": "toolchain",
+    "command": [
+      "rustup",
+      "show"
+    ],
+    "started_utc": "2026-10-04T18:19:47.274486+00:00",
+    "exit_code": 0,
+    "log": "audit/release-toolchain.log"
+  },
+  {
+    "name": "rust-version",
+    "command": [
+      "rustc",
+      "--version"
+    ],
+    "started_utc": "2026-10-04T18:19:47.510311+00:00",
+    "exit_code": 0,
+    "log": "audit/release-rust-version.log"
+  },
+  {
+    "name": "cargo-version",
+    "command": [
+      "cargo",
+      "--version"
+    ],
+    "started_utc": "2026-10-04T18:19:49.176127+00:00",
+    "exit_code": 0,
+    "log": "audit/release-cargo-version.log"
+  },
+  {
+    "name": "format",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "started_utc": "2026-10-04T18:19:49.318248+00:00",
+    "exit_code": 0,
+    "log": "audit/release-format.log"
+  },
+  {
+    "name": "consumer-format",
+    "command": [
+      "cargo",
+      "fmt",
+      "--manifest-path",
+      "integration/consumer/Cargo.toml",
+      "--",
+      "--check"
+    ],
+    "started_utc": "2026-10-04T18:19:51.042499+00:00",
+    "exit_code": 0,
+    "log": "audit/release-consumer-format.log"
+  },
+  {
+    "name": "check",
+    "command": [
+      "cargo",
+      "check",
+      "--workspace",
+      "--all-targets",
+      "--all-features",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:19:51.294759+00:00",
+    "exit_code": 0,
+    "log": "audit/release-check.log"
+  },
+  {
+    "name": "clippy",
+    "command": [
+      "cargo",
+      "clippy",
+      "--workspace",
+      "--all-targets",
+      "--all-features",
+      "--locked",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "started_utc": "2026-10-04T18:20:20.203083+00:00",
+    "exit_code": 0,
+    "log": "audit/release-clippy.log"
+  },
+  {
+    "name": "workspace-tests",
+    "command": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--all-targets",
+      "--all-features",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:20:22.084606+00:00",
+    "exit_code": 0,
+    "log": "audit/release-workspace-tests.log"
+  },
+  {
+    "name": "doctests",
+    "command": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--all-features",
+      "--doc",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:22:11.879016+00:00",
+    "exit_code": 0,
+    "log": "audit/release-doctests.log"
+  },
+  {
+    "name": "postgres-orm",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "lex-db-controller",
+      "--test",
+      "postgres_orm",
+      "--",
+      "--ignored",
+      "--test-threads=1"
+    ],
+    "started_utc": "2026-10-04T18:22:26.148177+00:00",
+    "exit_code": 0,
+    "log": "audit/release-postgres-orm.log"
+  },
+  {
+    "name": "postgres-permissions",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "lex-rest",
+      "--test",
+      "postgres_permissions",
+      "--",
+      "--ignored",
+      "--test-threads=1"
+    ],
+    "started_utc": "2026-10-04T18:22:36.798200+00:00",
+    "exit_code": 0,
+    "log": "audit/release-postgres-permissions.log"
+  },
+  {
+    "name": "postgres-mutations",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "lex-rest",
+      "--test",
+      "postgres_mutation",
+      "--",
+      "--ignored",
+      "--test-threads=1"
+    ],
+    "started_utc": "2026-10-04T18:22:49.915288+00:00",
+    "exit_code": 0,
+    "log": "audit/release-postgres-mutations.log"
+  },
+  {
+    "name": "rustdoc",
+    "command": [
+      "cargo",
+      "doc",
+      "--workspace",
+      "--all-features",
+      "--no-deps",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:22:54.883400+00:00",
+    "exit_code": 0,
+    "log": "audit/release-rustdoc.log"
+  },
+  {
+    "name": "features-default",
+    "command": [
+      "cargo",
+      "check",
+      "-p",
+      "lex-framework",
+      "--no-default-features",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:23:18.885421+00:00",
+    "exit_code": 0,
+    "log": "audit/release-features-default.log"
+  },
+  {
+    "name": "features-axum",
+    "command": [
+      "cargo",
+      "check",
+      "-p",
+      "lex-framework",
+      "--features",
+      "axum",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:23:24.819170+00:00",
+    "exit_code": 0,
+    "log": "audit/release-features-axum.log"
+  },
+  {
+    "name": "features-rustls",
+    "command": [
+      "cargo",
+      "check",
+      "-p",
+      "lex-framework",
+      "--features",
+      "axum-rustls",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:23:30.374445+00:00",
+    "exit_code": 0,
+    "log": "audit/release-features-rustls.log"
+  },
+  {
+    "name": "default-tests",
+    "command": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--all-targets",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:23:35.467853+00:00",
+    "exit_code": 0,
+    "log": "audit/release-default-tests.log"
+  },
+  {
+    "name": "consumer",
+    "command": [
+      "python3",
+      "integration/verify_consumer.py",
+      "--postgres"
+    ],
+    "started_utc": "2026-10-04T18:24:40.080757+00:00",
+    "exit_code": 0,
+    "log": "audit/release-consumer.log"
+  },
+  {
+    "name": "macro-consumers",
+    "command": [
+      "python3",
+      "integration/verify_macro_consumers.py"
+    ],
+    "started_utc": "2026-10-04T18:24:49.335546+00:00",
+    "exit_code": 0,
+    "log": "audit/release-macro-consumers.log"
+  },
+  {
+    "name": "quickstart",
+    "command": [
+      "python3",
+      "integration/verify_examples.py"
+    ],
+    "started_utc": "2026-10-04T18:25:30.860391+00:00",
+    "exit_code": 0,
+    "log": "audit/release-quickstart.log"
+  },
+  {
+    "name": "generated",
+    "command": [
+      "python3",
+      "integration/verify_generated.py",
+      "--postgres"
+    ],
+    "started_utc": "2026-10-04T18:25:42.661847+00:00",
+    "exit_code": 0,
+    "log": "audit/release-generated.log"
+  },
+  {
+    "name": "git-consumer",
+    "command": [
+      "python3",
+      "integration/verify_consumer.py",
+      "--local-git"
+    ],
+    "started_utc": "2026-10-04T18:26:52.796917+00:00",
+    "exit_code": 0,
+    "log": "audit/release-git-consumer.log"
+  },
+  {
+    "name": "package",
+    "command": [
+      "cargo",
+      "package",
+      "--workspace",
+      "--exclude",
+      "lex_framework_server",
+      "--all-features",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:30:36.689036+00:00",
+    "exit_code": 0,
+    "log": "audit/release-package.log"
+  },
+  {
+    "name": "packaged-consumer",
+    "command": [
+      "python3",
+      "integration/verify_packages.py"
+    ],
+    "started_utc": "2026-10-04T18:31:31.595303+00:00",
+    "exit_code": 0,
+    "log": "audit/release-packaged-consumer.log"
+  },
+  {
+    "name": "publish-dry-run",
+    "command": [
+      "cargo",
+      "publish",
+      "--workspace",
+      "--exclude",
+      "lex_framework_server",
+      "--all-features",
+      "--locked",
+      "--dry-run"
+    ],
+    "started_utc": "2026-10-04T18:33:02.527720+00:00",
+    "exit_code": 0,
+    "log": "audit/release-publish-dry-run.log"
+  },
+  {
+    "name": "stable",
+    "command": [
+      "cargo",
+      "+stable",
+      "check",
+      "--workspace",
+      "--all-targets",
+      "--all-features",
+      "--locked"
+    ],
+    "started_utc": "2026-10-04T18:33:40.891015+00:00",
+    "exit_code": 0,
+    "log": "audit/release-stable.log"
+  },
+  {
+    "name": "audit",
+    "command": [
+      "cargo",
+      "audit",
+      "--json"
+    ],
+    "started_utc": "2026-10-04T18:33:54.529071+00:00",
+    "exit_code": 0,
+    "log": "audit/release-audit.log"
+  }
+]

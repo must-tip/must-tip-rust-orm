@@ -1,0 +1,55 @@
+{
+  "checked_at_utc": "2026-10-04T14:33:24.855667+00:00",
+  "crates": [
+    {
+      "name": "lex-db",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-db-controller",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-cli",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-framework",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-rest",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-media",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-migration",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-models",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-orm",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex-secure-input",
+      "status": "not found",
+      "http_status": 404
+    }
+  ]
+}

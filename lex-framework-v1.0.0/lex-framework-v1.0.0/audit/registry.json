@@ -1,0 +1,65 @@
+{
+  "checked_at_utc": "2026-10-04T14:29:04.484880+00:00",
+  "crates": [
+    {
+      "name": "db",
+      "status": "exists",
+      "repository": "https://github.com/komora-io/db",
+      "latest": "0.0.0-alpha.101",
+      "ownership": "not established"
+    },
+    {
+      "name": "db_controller",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex_cli",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex_framework",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "lex_rest",
+      "status": "not found",
+      "http_status": 404
+    },
+    {
+      "name": "media",
+      "status": "exists",
+      "repository": "https://github.com/rust-media/media-rs",
+      "latest": "0.9.1",
+      "ownership": "not established"
+    },
+    {
+      "name": "migration",
+      "status": "exists",
+      "repository": "https://github.com/ARPA-Network/BLS-TSS-Network",
+      "latest": "0.2.2",
+      "ownership": "not established"
+    },
+    {
+      "name": "models",
+      "status": "exists",
+      "repository": null,
+      "latest": "0.1.3",
+      "ownership": "not established"
+    },
+    {
+      "name": "orm",
+      "status": "exists",
+      "repository": null,
+      "latest": "0.2.0",
+      "ownership": "not established"
+    },
+    {
+      "name": "secure_input",
+      "status": "not found",
+      "http_status": 404
+    }
+  ]
+}

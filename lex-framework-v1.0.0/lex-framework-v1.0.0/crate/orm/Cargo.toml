@@ -1,0 +1,32 @@
+[package]
+name = "lex-orm"
+version = "1.0.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Lex framework orm components"
+readme = "README.md"
+keywords = ["lex", "web", "database"]
+categories = ["web-programming", "database"]
+documentation = "https://docs.rs/lex-orm"
+
+[lib]
+name = "orm"
+proc-macro = true
+
+[dependencies]
+proc-macro-crate = "3"
+proc-macro2.workspace = true
+quote.workspace = true
+regex.workspace = true
+syn.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true
+trybuild = "1"
+db_controller = { package = "lex-db-controller", version = "=1.0.0", path = "../db_controller" }
+serde.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,5 @@
+# Lex project manifest. Managed by `lex`; safe to edit documented values.
+project_name = "lex_framework"
+apps_dir = "apps"
+server_dir = "project"
+server_package = "lex_framework_server"

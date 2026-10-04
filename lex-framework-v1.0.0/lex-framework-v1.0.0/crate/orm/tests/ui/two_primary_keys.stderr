@@ -1,0 +1,5 @@
+error: only one primary key is supported
+ --> tests/ui/two_primary_keys.rs:8:5
+  |
+8 |     other: i64,
+  |     ^^^^^
