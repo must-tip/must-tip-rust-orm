@@ -24,7 +24,7 @@ repository = "https://github.com/must-tip/must-tip-rust-orm"
 anyhow = "1"
 argon2 = { version = "0.5", features = ["std"] }
 async-trait = "0.1"
-base64 = "0.22"
+base64 = "0.23"
 chrono = { version = "0.4.45", features = ["serde"] }
 clap = { version = "4.5", features = ["derive", "env"] }
 config = "0.15.25"
