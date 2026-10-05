@@ -53,7 +53,7 @@ jobs:
         run: python3 integration/verify_release.py --output-dir "$RUNNER_TEMP/lex-evidence" --only format consumer-format check clippy doctests rustdoc features-default features-axum features-rustls
       - name: Preserve execution evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: quality-evidence
           path: ${{ runner.temp }}/lex-evidence
@@ -87,7 +87,7 @@ jobs:
         run: python3 integration/verify_release.py --output-dir "$RUNNER_TEMP/lex-evidence" --only workspace-tests default-tests postgres-orm postgres-permissions postgres-mutations consumer
       - name: Preserve execution evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: database-and-http-evidence
           path: ${{ runner.temp }}/lex-evidence
@@ -129,7 +129,7 @@ jobs:
           python3 integration/verify_consumer.py --git "$CONSUMER_REPOSITORY" --rev "$CONSUMER_REVISION" 2>&1 | tee "$RUNNER_TEMP/lex-evidence/hosted-git-consumer.log"
       - name: Preserve execution evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: developer-acceptance-evidence
           path: ${{ runner.temp }}/lex-evidence
@@ -152,12 +152,12 @@ jobs:
         run: python3 integration/verify_release.py --output-dir "$RUNNER_TEMP/lex-evidence" --only package packaged-consumer publish-dry-run
       - name: Preserve execution evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: packaging-evidence
           path: ${{ runner.temp }}/lex-evidence
           if-no-files-found: error
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: crate-packages
           path: lex-framework-v1.0.0/lex-framework-v1.0.0/target/package/*.crate
@@ -220,7 +220,7 @@ jobs:
       - run: npm run test:browser
       - name: Preserve browser failure diagnostics
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: website-browser-results
           path: lex-framework-v1.0.0/lex-framework-v1.0.0/docs-site/test-results
