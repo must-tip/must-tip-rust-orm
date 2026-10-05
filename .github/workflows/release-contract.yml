@@ -224,7 +224,7 @@ jobs:
         with:
           name: website-browser-results
           path: lex-framework-v1.0.0/lex-framework-v1.0.0/docs-site/test-results
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: lex-framework-v1.0.0/lex-framework-v1.0.0/docs-site/dist
   release-contract:
