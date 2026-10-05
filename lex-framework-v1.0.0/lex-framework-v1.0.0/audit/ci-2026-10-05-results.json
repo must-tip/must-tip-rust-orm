@@ -1,0 +1,822 @@
+{
+  "date": "2026-10-05",
+  "hosted_workflow_executed": false,
+  "final_checks": [
+    {
+      "name": "toolchain",
+      "command": [
+        "rustup",
+        "show"
+      ],
+      "started_utc": "2026-10-05T02:09:58.151305+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-toolchain.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "rust-version",
+      "command": [
+        "rustc",
+        "--version"
+      ],
+      "started_utc": "2026-10-05T02:09:58.275331+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-rust-version.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "cargo-version",
+      "command": [
+        "cargo",
+        "--version"
+      ],
+      "started_utc": "2026-10-05T02:09:58.399769+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-cargo-version.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "started_utc": "2026-10-05T02:09:58.517754+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-format.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "consumer-format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "integration/consumer/Cargo.toml",
+        "--",
+        "--check"
+      ],
+      "started_utc": "2026-10-05T02:09:59.753158+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-consumer-format.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "check",
+      "command": [
+        "cargo",
+        "check",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:10:00.135499+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-check.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--locked",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "started_utc": "2026-10-05T02:10:01.082414+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-clippy.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "workspace-tests",
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:10:30.043078+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-workspace-tests.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "doctests",
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--all-features",
+        "--doc",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:10:42.510890+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-doctests.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "postgres-orm",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "lex-db-controller",
+        "--test",
+        "postgres_orm",
+        "--",
+        "--ignored",
+        "--test-threads=1"
+      ],
+      "started_utc": "2026-10-05T02:10:46.747310+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-postgres-orm.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "postgres-permissions",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "lex-rest",
+        "--test",
+        "postgres_permissions",
+        "--",
+        "--ignored",
+        "--test-threads=1"
+      ],
+      "started_utc": "2026-10-05T02:10:48.237420+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-postgres-permissions.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "postgres-mutations",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "lex-rest",
+        "--test",
+        "postgres_mutation",
+        "--",
+        "--ignored",
+        "--test-threads=1"
+      ],
+      "started_utc": "2026-10-05T02:10:49.168515+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-postgres-mutations.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "rustdoc",
+      "command": [
+        "cargo",
+        "doc",
+        "--workspace",
+        "--all-features",
+        "--no-deps",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:10:49.890479+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-rustdoc.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "features-default",
+      "command": [
+        "cargo",
+        "check",
+        "-p",
+        "lex-framework",
+        "--no-default-features",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:11:20.876588+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-features-default.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "features-axum",
+      "command": [
+        "cargo",
+        "check",
+        "-p",
+        "lex-framework",
+        "--features",
+        "axum",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:11:23.003167+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-features-axum.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "features-rustls",
+      "command": [
+        "cargo",
+        "check",
+        "-p",
+        "lex-framework",
+        "--features",
+        "axum-rustls",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:11:23.841755+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-features-rustls.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "default-tests",
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--all-targets",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:11:24.563430+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-default-tests.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "consumer",
+      "command": [
+        "python3",
+        "integration/verify_consumer.py",
+        "--postgres"
+      ],
+      "started_utc": "2026-10-05T02:11:32.962211+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-consumer.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "macro-consumers",
+      "command": [
+        "python3",
+        "integration/verify_macro_consumers.py"
+      ],
+      "started_utc": "2026-10-05T02:11:41.386474+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-macro-consumers.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "quickstart",
+      "command": [
+        "python3",
+        "integration/verify_examples.py"
+      ],
+      "started_utc": "2026-10-05T02:12:23.459884+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-quickstart.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "generated",
+      "command": [
+        "python3",
+        "integration/verify_generated.py",
+        "--postgres"
+      ],
+      "started_utc": "2026-10-05T02:12:27.430934+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-generated.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "git-consumer",
+      "command": [
+        "python3",
+        "integration/verify_consumer.py",
+        "--local-git"
+      ],
+      "started_utc": "2026-10-05T02:14:00.615750+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-git-consumer.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "package",
+      "command": [
+        "cargo",
+        "package",
+        "--workspace",
+        "--exclude",
+        "lex_framework_server",
+        "--all-features",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:40:48.963539+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-package.log",
+      "verification_context": "clean temporary Git snapshot of modified source"
+    },
+    {
+      "name": "packaged-consumer",
+      "command": [
+        "python3",
+        "integration/verify_packages.py"
+      ],
+      "started_utc": "2026-10-05T02:43:10.110124+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-packaged-consumer.log",
+      "verification_context": "rebuilt snapshot packages; Cargo-resolved target directory"
+    },
+    {
+      "name": "publish-dry-run",
+      "command": [
+        "cargo",
+        "publish",
+        "--workspace",
+        "--exclude",
+        "lex_framework_server",
+        "--all-features",
+        "--locked",
+        "--dry-run"
+      ],
+      "started_utc": "2026-10-05T02:41:35.061828+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-publish-dry-run.log",
+      "verification_context": "clean temporary Git snapshot of modified source"
+    },
+    {
+      "name": "stable",
+      "command": [
+        "cargo",
+        "+stable",
+        "check",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--locked"
+      ],
+      "started_utc": "2026-10-05T02:21:03.384761+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-stable.log",
+      "verification_context": "modified checkout"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "cargo",
+        "audit",
+        "--json"
+      ],
+      "started_utc": "2026-10-05T02:21:07.516918+00:00",
+      "exit_code": 0,
+      "log": "audit/ci-2026-10-05-audit.log",
+      "verification_context": "modified checkout"
+    }
+  ],
+  "initial_phases": {
+    "modified_checkout": [
+      {
+        "name": "toolchain",
+        "command": [
+          "rustup",
+          "show"
+        ],
+        "started_utc": "2026-10-05T02:09:58.151305+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-toolchain.log"
+      },
+      {
+        "name": "rust-version",
+        "command": [
+          "rustc",
+          "--version"
+        ],
+        "started_utc": "2026-10-05T02:09:58.275331+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-rust-version.log"
+      },
+      {
+        "name": "cargo-version",
+        "command": [
+          "cargo",
+          "--version"
+        ],
+        "started_utc": "2026-10-05T02:09:58.399769+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-cargo-version.log"
+      },
+      {
+        "name": "format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--all",
+          "--",
+          "--check"
+        ],
+        "started_utc": "2026-10-05T02:09:58.517754+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-format.log"
+      },
+      {
+        "name": "consumer-format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--manifest-path",
+          "integration/consumer/Cargo.toml",
+          "--",
+          "--check"
+        ],
+        "started_utc": "2026-10-05T02:09:59.753158+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-consumer-format.log"
+      },
+      {
+        "name": "check",
+        "command": [
+          "cargo",
+          "check",
+          "--workspace",
+          "--all-targets",
+          "--all-features",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:10:00.135499+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-check.log"
+      },
+      {
+        "name": "clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--workspace",
+          "--all-targets",
+          "--all-features",
+          "--locked",
+          "--",
+          "-D",
+          "warnings"
+        ],
+        "started_utc": "2026-10-05T02:10:01.082414+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-clippy.log"
+      },
+      {
+        "name": "workspace-tests",
+        "command": [
+          "cargo",
+          "test",
+          "--workspace",
+          "--all-targets",
+          "--all-features",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:10:30.043078+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-workspace-tests.log"
+      },
+      {
+        "name": "doctests",
+        "command": [
+          "cargo",
+          "test",
+          "--workspace",
+          "--all-features",
+          "--doc",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:10:42.510890+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-doctests.log"
+      },
+      {
+        "name": "postgres-orm",
+        "command": [
+          "cargo",
+          "test",
+          "-p",
+          "lex-db-controller",
+          "--test",
+          "postgres_orm",
+          "--",
+          "--ignored",
+          "--test-threads=1"
+        ],
+        "started_utc": "2026-10-05T02:10:46.747310+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-postgres-orm.log"
+      },
+      {
+        "name": "postgres-permissions",
+        "command": [
+          "cargo",
+          "test",
+          "-p",
+          "lex-rest",
+          "--test",
+          "postgres_permissions",
+          "--",
+          "--ignored",
+          "--test-threads=1"
+        ],
+        "started_utc": "2026-10-05T02:10:48.237420+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-postgres-permissions.log"
+      },
+      {
+        "name": "postgres-mutations",
+        "command": [
+          "cargo",
+          "test",
+          "-p",
+          "lex-rest",
+          "--test",
+          "postgres_mutation",
+          "--",
+          "--ignored",
+          "--test-threads=1"
+        ],
+        "started_utc": "2026-10-05T02:10:49.168515+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-postgres-mutations.log"
+      },
+      {
+        "name": "rustdoc",
+        "command": [
+          "cargo",
+          "doc",
+          "--workspace",
+          "--all-features",
+          "--no-deps",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:10:49.890479+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-rustdoc.log"
+      },
+      {
+        "name": "features-default",
+        "command": [
+          "cargo",
+          "check",
+          "-p",
+          "lex-framework",
+          "--no-default-features",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:11:20.876588+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-features-default.log"
+      },
+      {
+        "name": "features-axum",
+        "command": [
+          "cargo",
+          "check",
+          "-p",
+          "lex-framework",
+          "--features",
+          "axum",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:11:23.003167+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-features-axum.log"
+      },
+      {
+        "name": "features-rustls",
+        "command": [
+          "cargo",
+          "check",
+          "-p",
+          "lex-framework",
+          "--features",
+          "axum-rustls",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:11:23.841755+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-features-rustls.log"
+      },
+      {
+        "name": "default-tests",
+        "command": [
+          "cargo",
+          "test",
+          "--workspace",
+          "--all-targets",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:11:24.563430+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-default-tests.log"
+      },
+      {
+        "name": "consumer",
+        "command": [
+          "python3",
+          "integration/verify_consumer.py",
+          "--postgres"
+        ],
+        "started_utc": "2026-10-05T02:11:32.962211+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-consumer.log"
+      },
+      {
+        "name": "macro-consumers",
+        "command": [
+          "python3",
+          "integration/verify_macro_consumers.py"
+        ],
+        "started_utc": "2026-10-05T02:11:41.386474+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-macro-consumers.log"
+      },
+      {
+        "name": "quickstart",
+        "command": [
+          "python3",
+          "integration/verify_examples.py"
+        ],
+        "started_utc": "2026-10-05T02:12:23.459884+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-quickstart.log"
+      },
+      {
+        "name": "generated",
+        "command": [
+          "python3",
+          "integration/verify_generated.py",
+          "--postgres"
+        ],
+        "started_utc": "2026-10-05T02:12:27.430934+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-generated.log"
+      },
+      {
+        "name": "git-consumer",
+        "command": [
+          "python3",
+          "integration/verify_consumer.py",
+          "--local-git"
+        ],
+        "started_utc": "2026-10-05T02:14:00.615750+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-git-consumer.log"
+      },
+      {
+        "name": "package",
+        "command": [
+          "cargo",
+          "package",
+          "--workspace",
+          "--exclude",
+          "lex_framework_server",
+          "--all-features",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:18:24.640663+00:00",
+        "exit_code": 101,
+        "log": "/tmp/lex-ci-final/release-package.log"
+      },
+      {
+        "name": "packaged-consumer",
+        "command": [
+          "python3",
+          "integration/verify_packages.py"
+        ],
+        "started_utc": "2026-10-05T02:18:25.069341+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-packaged-consumer.log"
+      },
+      {
+        "name": "publish-dry-run",
+        "command": [
+          "cargo",
+          "publish",
+          "--workspace",
+          "--exclude",
+          "lex_framework_server",
+          "--all-features",
+          "--locked",
+          "--dry-run"
+        ],
+        "started_utc": "2026-10-05T02:21:00.575596+00:00",
+        "exit_code": 101,
+        "log": "/tmp/lex-ci-final/release-publish-dry-run.log"
+      },
+      {
+        "name": "stable",
+        "command": [
+          "cargo",
+          "+stable",
+          "check",
+          "--workspace",
+          "--all-targets",
+          "--all-features",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:21:03.384761+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-stable.log"
+      },
+      {
+        "name": "audit",
+        "command": [
+          "cargo",
+          "audit",
+          "--json"
+        ],
+        "started_utc": "2026-10-05T02:21:07.516918+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-final/release-audit.log"
+      }
+    ],
+    "clean_snapshot_packaging": [
+      {
+        "name": "package",
+        "command": [
+          "cargo",
+          "package",
+          "--workspace",
+          "--exclude",
+          "lex_framework_server",
+          "--all-features",
+          "--locked"
+        ],
+        "started_utc": "2026-10-05T02:40:48.963539+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-clean-packaging/release-package.log"
+      },
+      {
+        "name": "packaged-consumer",
+        "command": [
+          "python3",
+          "integration/verify_packages.py"
+        ],
+        "started_utc": "2026-10-05T02:41:34.493504+00:00",
+        "exit_code": 1,
+        "log": "/tmp/lex-ci-clean-packaging/release-packaged-consumer.log"
+      },
+      {
+        "name": "publish-dry-run",
+        "command": [
+          "cargo",
+          "publish",
+          "--workspace",
+          "--exclude",
+          "lex_framework_server",
+          "--all-features",
+          "--locked",
+          "--dry-run"
+        ],
+        "started_utc": "2026-10-05T02:41:35.061828+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-clean-packaging/release-publish-dry-run.log"
+      }
+    ],
+    "resolved_target_consumer": [
+      {
+        "name": "packaged-consumer",
+        "command": [
+          "python3",
+          "integration/verify_packages.py"
+        ],
+        "started_utc": "2026-10-05T02:43:10.110124+00:00",
+        "exit_code": 0,
+        "log": "/tmp/lex-ci-package-consumer/release-packaged-consumer.log"
+      }
+    ]
+  },
+  "additional_checks": {
+    "workflow_actionlint": "passed (v1.7.7)",
+    "clean_npm_install": "passed",
+    "npm_audit": "zero known vulnerabilities",
+    "website_build": "passed; large bundle warning remains",
+    "chromium_project_subpath": "39 passed; zero failed",
+    "section_focus_regression": "1 passed after strengthening target-focus assertion",
+    "hosted_git_consumer": {
+      "repository": "https://github.com/must-tip/must-tip-rust-orm",
+      "revision": "0a3db27f743a9dc2fb9ca3f85692822525d8f702",
+      "tests_passed": 13,
+      "note": "published existing commit; modified CI will be exercised after push"
+    }
+  }
+}

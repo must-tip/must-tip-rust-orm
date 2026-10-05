@@ -9,6 +9,7 @@ import {
   PackageCheck, Search, ShieldCheck, Sparkles, Sun, TerminalSquare, X, Zap
 } from "lucide-react";
 import { DOC_VERSION, docsNav } from "./docsManifest";
+import { SectionLink, TableOfContents } from "./components/SectionLink";
 
 const rawDocs = import.meta.glob("./content/v1.0.0/*.md", { query: "?raw", import: "default", eager: true });
 const docsBySlug = Object.fromEntries(Object.entries(rawDocs).map(([path, value]) => [path.split("/").pop().replace(/\.md$/, ""), value]));
@@ -84,7 +85,7 @@ function docHref(href="") {
 
 const markdownComponents = {
  h1: ({children}) => <h1 id={slugify(children)}>{children}</h1>, h2: ({children}) => <h2 id={slugify(children)}>{children}</h2>, h3: ({children}) => <h3 id={slugify(children)}>{children}</h3>,
- a: ({href,children}) => { const external=href?.startsWith("http"); const resolved=external?href:docHref(href); return <a href={resolved} target={external?"_blank":undefined} rel="noreferrer">{children}{external?<ExternalLink size={12}/>:null}</a>; },
+ a: ({href,children}) => { const external=href?.startsWith("http"); const resolved=external?href:docHref(href); if (resolved?.startsWith("#") && !resolved.startsWith("#/")) return <SectionLink id={resolved.slice(1)}>{children}</SectionLink>; return <a href={resolved} target={external?"_blank":undefined} rel="noreferrer">{children}{external?<ExternalLink size={12}/>:null}</a>; },
  pre: ({children}) => <>{children}</>,
  code: ({className,children,...props}) => { const block = Boolean(className) || String(children).includes("\n"); return block ? <CodeBlock className={className}>{children}</CodeBlock> : <code className="inline-code" {...props}>{children}</code>; },
  table: ({children}) => <div className="table-scroll"><table>{children}</table></div>,
@@ -96,7 +97,7 @@ function extractToc(md) { return md.split("\n").filter(x=>/^##\s/.test(x)).slice
 function DocPage() {
  const {slug="quick-start"}=useParams(); const md=docsBySlug[slug]; const page=flatDocs.find(x=>x.slug===slug); const toc=useMemo(()=>extractToc(md||""),[md]);
  if(!md) return <NotFound/>;
- return <motion.main className="doc-shell" key={slug} initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} transition={{duration:.25}}><article className="doc-article"><div className="eyebrow">{page?.group} · v{DOC_VERSION}</div><ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{md}</ReactMarkdown><DocPager slug={slug}/></article><aside className="toc desktop-only"><div className="toc-title">On this page</div>{toc.map(x=><a href={`#${x.id}`} key={x.id}>{x.title}</a>)}</aside></motion.main>;
+ return <motion.main className="doc-shell" key={slug} initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} transition={{duration:.25}}><article className="doc-article"><div className="eyebrow">{page?.group} · v{DOC_VERSION}</div><ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{md}</ReactMarkdown><DocPager slug={slug}/></article><TableOfContents sections={toc}/></motion.main>;
 }
 function DocPager({slug}) { const idx=flatDocs.findIndex(x=>x.slug===slug); const prev=flatDocs[idx-1], next=flatDocs[idx+1]; return <div className="doc-pager">{prev?<Link to={`/docs/${prev.slug}`}><small>Previous</small><strong>← {prev.title}</strong></Link>:<span/>}{next?<Link to={`/docs/${next.slug}`} className="next"><small>Next</small><strong>{next.title} →</strong></Link>:null}</div>; }
 

@@ -17,3 +17,5 @@
 
 **/node_modules/
 /docs-site/dist/
+/docs-site/test-results/
+/docs-site/playwright-report/

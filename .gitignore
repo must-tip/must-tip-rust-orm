@@ -1,0 +1,11 @@
+# Generated outputs across the monorepo, including archived documentation.
+**/target/
+**/node_modules/
+**/dist/
+**/test-results/
+**/playwright-report/
+**/__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example

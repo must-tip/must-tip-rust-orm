@@ -1,3 +1,5 @@
+> **2026-10-05 update:** the repository now has Git remote `https://github.com/must-tip/must-tip-rust-orm`; its public HEAD was verified and an independent hosted consumer passed. Crate repository metadata is now populated. The GitHub workflows have moved to the actual repository root. See the root `docs/ci.md` and `audit/CI_IMPROVEMENTS.md` for the newer CI work and evidence. Statements below about an unavailable canonical URL describe the original 2026-10-04 archive baseline; a release tag and execution of the newly changed workflow on GitHub remain unverified.
+
 # Lex production hardening and release audit
 
 **Status: hardening implemented; release approval remains withheld.** This report distinguishes executed checks, source review, unsupported behavior and remaining coverage. It does not certify the user's entire definition of done. The supplied tree is an extracted distribution without Git provenance or a canonical hosted URL. No crates were uploaded.

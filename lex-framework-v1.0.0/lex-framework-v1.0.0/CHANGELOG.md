@@ -4,6 +4,9 @@
 
 ### Added
 
+- Repository-root push/PR CI with isolated quality, DB/HTTP, developer acceptance, packaging, stable, audit and documentation jobs; required aggregate check and opt-in gated GitHub Pages deployment.
+- Chromium acceptance of all documentation pages and user navigation under the GitHub Pages project prefix, plus weekly dependency maintenance.
+
 - Normalized MembershipRole/RolePermission entities, tenant-matched composite FKs, deduplicating constraints, live permission repository for both backends and conservative PostgreSQL legacy conversion.
 - Isolated facade-only acceptance application; macro compile-fail diagnostics; HTTP auth/CSRF/error tests; RLS connection-reuse tests; filesystem/scanner threat regressions.
 - Standalone CLI project generation with local checkout, pinned Git and future registry dependency sources.
@@ -18,6 +21,8 @@
 - Multiple valid authentication mechanisms are rejected; valid early credentials cannot mask invalid later credentials.
 
 ### Fixed
+
+- Documentation section links preserve the hash-router page instead of replacing its route. Package verification resolves Cargo target configuration; fresh CI evidence cannot inherit historical audit results.
 
 - Baseline compile errors in bulk update SQL, CLI generated fixture delimiters/manifest borrowing, and HMAC key initialization.
 - Facade-only and aliased derive paths, relation/composite metadata expansion, and SQLite UUID text row decoding.

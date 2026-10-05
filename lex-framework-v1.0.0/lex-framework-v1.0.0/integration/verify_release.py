@@ -8,9 +8,6 @@ import pathlib
 import subprocess
 
 root = pathlib.Path(__file__).resolve().parents[1]
-assert os.environ.get('CONFIRM_DISPOSABLE_DATABASE') == 'yes', 'explicit disposable PostgreSQL confirmation required'
-assert os.environ.get('TEST_DATABASE_URL'), 'dedicated PostgreSQL URL required'
-assert os.environ.get('LEX_TEST_COOKIE_SECRET'), 'disposable cookie test secret required'
 checks = [
     ('toolchain', ['rustup', 'show']),
     ('rust-version', ['rustc', '--version']),
@@ -41,23 +38,40 @@ checks = [
     ('audit', ['cargo', 'audit', '--json']),
 ]
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--only', nargs='+', choices=[name for name, _ in checks], help='Repeat selected gates while retaining other recorded results')
+parser.add_argument('--only', nargs='+', choices=[name for name, _ in checks], help='Run selected gates; retain historical results only without --output-dir')
+parser.add_argument('--output-dir', type=pathlib.Path, help='Write fresh evidence outside the tracked audit directory (CI)')
 args = parser.parse_args()
-results = json.loads((root / 'audit/release-results.json').read_text()) if args.only and (root / 'audit/release-results.json').exists() else []
+output_dir = args.output_dir.resolve() if args.output_dir else root / 'audit'
+output_dir.mkdir(parents=True, exist_ok=True)
+results_file = output_dir / 'release-results.json'
+results = json.loads(results_file.read_text()) if args.only and not args.output_dir and results_file.exists() else []
 if args.only:
     checks = [(name, command) for name, command in checks if name in args.only]
+database_checks = {'workspace-tests', 'default-tests', 'postgres-orm', 'postgres-permissions', 'postgres-mutations', 'consumer', 'generated'}
+if any(name in database_checks for name, _ in checks):
+    for setting in ('TEST_DATABASE_URL', 'LEX_TEST_COOKIE_SECRET'):
+        if not os.environ.get(setting): parser.error(f'{setting} is required for database acceptance gates')
+    if os.environ.get('CONFIRM_DISPOSABLE_DATABASE') != 'yes':
+        parser.error('CONFIRM_DISPOSABLE_DATABASE=yes is required for database acceptance gates')
 for name, command in checks:
     print('RUN', name, ' '.join(command), flush=True)
     env = dict(os.environ)
     if name == 'rustdoc': env['RUSTDOCFLAGS'] = '-D warnings'
     if name == 'stable': env['CARGO_TARGET_DIR'] = '/tmp/lex-stable-target'
     start = datetime.datetime.now(datetime.timezone.utc)
-    logfile = root / 'audit' / f'release-{name}.log'
+    logfile = output_dir / f'release-{name}.log'
     with logfile.open('w') as output:
-        result = subprocess.run(command, cwd=root, env=env, stdout=output, stderr=subprocess.STDOUT)
+        try:
+            result = subprocess.run(command, cwd=root, env=env, stdout=output, stderr=subprocess.STDOUT, timeout=1800)
+            exit_code = result.returncode
+        except (OSError, subprocess.TimeoutExpired) as error:
+            output.write(f'\nGate could not complete: {error}\n')
+            exit_code = 124 if isinstance(error, subprocess.TimeoutExpired) else 127
     results = [record for record in results if record['name'] != name]
-    results.append({'name': name, 'command': command, 'started_utc': start.isoformat(), 'exit_code': result.returncode, 'log': str(logfile.relative_to(root))})
-    (root / 'audit/release-results.json').write_text(json.dumps(results, indent=2) + '\n')
-    print('RESULT', name, result.returncode, flush=True)
+    results.append({'name': name, 'command': command, 'started_utc': start.isoformat(), 'exit_code': exit_code, 'log': str(logfile) if args.output_dir else str(logfile.relative_to(root))})
+    results_file.write_text(json.dumps(results, indent=2) + '\n')
+    print('RESULT', name, exit_code, flush=True)
+    if exit_code:
+        print(logfile.read_text()[-12000:], flush=True)
 print('Recorded all gates. Nonzero results remain failures or blockers; inspect logs.', flush=True)
 raise SystemExit(0 if all(result['exit_code'] == 0 for result in results) else 1)

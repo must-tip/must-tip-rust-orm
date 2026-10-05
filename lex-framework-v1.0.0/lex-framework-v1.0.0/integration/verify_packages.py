@@ -2,12 +2,15 @@
 """Test normalized packaged sources, using local patches until registry publication."""
 import json, pathlib, shutil, subprocess, tarfile, tempfile, tomllib
 root=pathlib.Path(__file__).resolve().parents[1]
+# Cargo resolves environment overrides and .cargo configuration; don't assume root/target.
+metadata=json.loads(subprocess.check_output(['cargo','metadata','--no-deps','--format-version','1'],cwd=root,text=True))
+package_directory=pathlib.Path(metadata['target_directory'])/'package'
 names=['lex-db-controller','lex-media','lex-secure-input','lex-cli','lex-orm','lex-models','lex-migration','lex-db','lex-rest','lex-framework']
 with tempfile.TemporaryDirectory(prefix='lex-packages-') as temporary:
     temporary=pathlib.Path(temporary)
     paths={}
     for name in names:
-        archive=root/'target/package'/f'{name}-1.0.0.crate'
+        archive=package_directory/f'{name}-1.0.0.crate'
         with tarfile.open(archive) as package:
             members=package.getnames()
             for required in ['Cargo.toml','README.md','LICENSE-MIT','LICENSE-APACHE']:

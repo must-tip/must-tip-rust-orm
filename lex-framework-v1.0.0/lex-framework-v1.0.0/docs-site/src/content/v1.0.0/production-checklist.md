@@ -11,7 +11,7 @@ Normal dependency order (independent leaves may be published in any order):
 5. `lex-db` and `lex-rest`
 6. `lex-framework`
 
-`lex-rest`'s dev migration dependency also requires the earlier migration publication. `project` and the acceptance application are unpublished. Metadata still needs the canonical repository URL. The read-only registry lookup on 2026-10-04 found no entries for these ten prefixed names; that does not reserve them or prove maintainer ownership. Generic names including db, media, migration, models and orm already identify unrelated packages. Evidence is in `audit/registry-prefixed.json` and `audit/registry.json`.
+`lex-rest`'s dev migration dependency also requires the earlier migration publication. `project` and the acceptance application are unpublished. All supported crate manifests inherit the canonical repository URL https://github.com/must-tip/must-tip-rust-orm. The read-only registry lookup on 2026-10-04 found no entries for these ten prefixed names; that does not reserve them or prove maintainer ownership. Generic names including db, media, migration, models and orm already identify unrelated packages. Evidence is in `audit/registry-prefixed.json` and `audit/registry.json`.
 
 Package lists and archive verification must include licenses, readmes, macro sources and any runtime-required templates. The CLI embeds templates in Rust strings and does not need repository-only template files. Cargo 1.97.1 supports packaging this unpublished dependency graph together:
 

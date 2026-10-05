@@ -2,21 +2,21 @@
 
 Install Rust **1.97.1** with rustfmt and Clippy. This is both the pinned toolchain and declared minimum; no lower MSRV is promised.
 
-The primary package is `lex-framework`; its Rust import remains `lex_framework`. All distribution packages use the `lex-` prefix to avoid unrelated registry packages with generic names. Before registry publication, applications use a Git dependency on the canonical repository. This extracted source distribution contains no Git remote or canonical URL: hosted installation and release tagging remain blocked until the maintainer supplies and verifies that identity. Do not infer a repository from the directory name.
+The primary package is `lex-framework`; its Rust import remains `lex_framework`. All distribution packages use the `lex-` prefix to avoid unrelated registry packages with generic names. Before registry publication, applications use a Git dependency on the canonical repository. The canonical repository is https://github.com/must-tip/must-tip-rust-orm, verified from the Git remote and public HEAD on 2026-10-05. Release tags still require explicit publication and verification.
 
 The supported Cargo declarations have the following forms; replace the explicitly named placeholders with verified release metadata:
 
 ```toml
 [dependencies]
 # Recommended for deployment after a real release tag exists:
-lex-framework = { git = "VERIFIED_REPOSITORY_URL", tag = "VERIFIED_RELEASE_TAG", features = ["axum"] }
+lex-framework = { git = "https://github.com/must-tip/must-tip-rust-orm", tag = "VERIFIED_RELEASE_TAG", features = ["axum"] }
 # Alternatively pin an immutable commit:
-# lex-framework = { git = "VERIFIED_REPOSITORY_URL", rev = "VERIFIED_COMMIT", features = ["axum"] }
+# lex-framework = { git = "https://github.com/must-tip/must-tip-rust-orm", rev = "VERIFIED_COMMIT", features = ["axum"] }
 # Development only:
-# lex-framework = { git = "VERIFIED_REPOSITORY_URL", branch = "main", features = ["axum"] }
+# lex-framework = { git = "https://github.com/must-tip/must-tip-rust-orm", branch = "main", features = ["axum"] }
 ```
 
-The isolated acceptance runner tests branch, commit and tag forms against a local Git snapshot. That proves Cargo Git dependency layout, **not** that a particular hosted GitHub release exists. After the canonical source is supplied, run `python3 integration/verify_consumer.py --git URL --tag TAG`.
+The isolated acceptance runner tests branch, commit and tag forms against a local Git snapshot. That proves Cargo Git dependency layout, **not** that a particular hosted GitHub release exists. To verify a published release, run `python3 integration/verify_consumer.py --git URL --tag TAG`.
 
 After all crates are published and verified, the declaration becomes:
 
