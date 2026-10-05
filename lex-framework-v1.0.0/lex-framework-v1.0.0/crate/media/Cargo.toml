@@ -15,7 +15,7 @@ description = "Lex media storage and scanning contracts"
 name = "media"
 
 [dependencies]
-cap-std = "3"
+cap-std = "4"
 uuid.workspace = true
 async-trait.workspace = true
 serde.workspace = true
